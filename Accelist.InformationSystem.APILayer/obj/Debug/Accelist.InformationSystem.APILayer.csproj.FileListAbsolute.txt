@@ -1,0 +1,11 @@
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.dll
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.pdb
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.dll
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.dll
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.pdb
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.xml
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.pdb
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.xml
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.csprojResolveAssemblyReference.cache
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.dll
+c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.pdb

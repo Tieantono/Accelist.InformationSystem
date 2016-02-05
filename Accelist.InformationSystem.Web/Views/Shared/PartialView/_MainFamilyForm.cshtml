@@ -1,0 +1,59 @@
+﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
+
+<h2 class="register-sub-header"><strong>Main Family Data</strong></h2>
+<div>
+    <h3 id="husband" class="col-sm-offset-1"><strong>Husband</strong></h3>
+    <h3 id="wife" class="col-sm-offset-1"><strong>Wife</strong></h3>)
+</div>
+<div class="form-group">
+    @Html.LabelFor(Q => Q.MateName, "Name", new { @class = "col-sm-2 control-label" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.MateName, "", new { @class = "error-msg" })
+    </div>
+</div>
+<div class="form-group">
+    <label for="MateBirthPlace" class="col-sm-2 control-label">
+        Birth Place
+    </label>
+    <div class="col-sm-4">
+        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.MateBirthPlace, "", new { @class = "error-msg" })
+    </div>
+    <label for="MateBirthDate" class="col-sm-2 control-label col-sm-pull-1">
+        & Date
+    </label>
+    <div class="col-sm-4 col-sm-pull-1">
+        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.MateBirthDate, "", new { @class = "error-msg" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(Q => Q.MateJob, "Job/Occupation", new { @class = "col-sm-2 control-label" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.MateJob, "", new { @class = "error-msg" })
+    </div>
+</div>
+@Html.HiddenFor(Q => Q.MateGender)
+<div class="row child-form">
+    <h3 id="child" class="col-sm-1 col-sm-offset-1">
+    <strong>Child</strong>
+    </h3>
+    <div class="child-btn-group">
+        <button id="addChildBtn" type="button" class="col-sm-1 btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button id="removeChildBtn" type="button" class="col-sm-1 btn btn-danger">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </div>
+</div>
+<div id="childForm">
+</div>
+<button id="personalBtn" type="button" class="btn btn-default btn btn-default col-sm-offset-10">
+    Prev
+</button>
+<button id="biologicalFamilyBtn" type="button" class="btn btn-default btn btn-default col-sm-offset-12">
+    Next
+</button>
