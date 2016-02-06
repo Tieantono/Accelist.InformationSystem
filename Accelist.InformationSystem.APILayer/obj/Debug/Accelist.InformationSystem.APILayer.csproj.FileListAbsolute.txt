@@ -9,3 +9,14 @@ c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\A
 c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.csprojResolveAssemblyReference.cache
 c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.dll
 c:\users\cool\documents\visual studio 2013\Projects\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.csprojResolveAssemblyReference.cache
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.pdb

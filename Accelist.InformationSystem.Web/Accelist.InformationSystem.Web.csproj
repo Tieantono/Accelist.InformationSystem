@@ -158,6 +158,11 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\PartialView\_MainFamilyForm.cshtml" />
     <Content Include="Views\Shared\PartialView\_BiologicalFamilyForm.cshtml" />
+    <Content Include="Views\Shared\PartialView\_SertificateRecordForm.cshtml" />
+    <Content Include="Views\Shared\PartialView\_WorkExperienceForm.cshtml" />
+    <Content Include="Views\Shared\PartialView\_AcademicRecordForm.cshtml" />
+    <Content Include="Views\Shared\PartialView\_BankAccountForm.cshtml" />
+    <Content Include="Views\Shared\PartialView\_OtherInfoForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
