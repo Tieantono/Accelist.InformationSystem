@@ -15,14 +15,11 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
     }
     public enum Academic
     {
-        TK,
         SD,
         SMP,
-        SMA,
-        SMK,
-        S1,
-        S2,
-        S3
+        SMU,
+        D3,
+        S1
     }
     public enum BloodType
     {
@@ -30,15 +27,6 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         B,
         AB,
         O
-    }
-    public enum Religion
-    {
-        Atheis,
-        Budha,
-        Hindu,
-        Katolik,
-        Konghucu,
-        Kristen
     }
     public enum Status
     {
@@ -60,9 +48,13 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         public string ChildBirthPlace { get; set; }
 
-        public DateTime? ChildBirthDate { get; set; }
+        public string ChildBirthDate { get; set; }
 
         public string ChildJob { get; set; }
+    }
+
+    public class Test {
+        public string Tests { get; set; }
     }
 
     public class Sibling{
@@ -75,6 +67,36 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public DateTime? SiblingBirthDate { get; set; }
 
         public string SiblingJob { get; set; }
+    }
+
+    public class WorkingExperience {
+        public string CompanyName { get; set; }
+
+        public string Position { get; set; }
+
+        public DateTime JoinDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+    }
+
+    public class AcademicRecord {
+        public Academic Degree { get; set; }
+
+        public string SchoolName { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime FinishDate { get; set; }
+
+        public string Award { get; set; }
+    }
+
+    public class WorkshopRecord {
+        public string WorkshopName { get; set; }
+
+        public string Institution { get; set; }
+
+        public DateTime Year { get; set; }
     }
 
     public class RegisterModel
@@ -131,10 +153,12 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email must be filled")]
+        [EmailAddress(ErrorMessage="Email format is invalid")]
         public string Email { get; set; }
 
         [Display(Name = "Religion")]
-        public Religion Religion { get; set; }
+        [Required(ErrorMessage = "Religion must be filled")]
+        public string Religion { get; set; }
 
         [Required(ErrorMessage = "Total Sibling must be filled")]
         public int TotalSibling { get; set; }
@@ -193,6 +217,40 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public string MomJob { get; set; }
 
         public List<Sibling> Siblings { get; set; }
+        #endregion
+
+        #region WorkingExperienceDataModel
+
+        public List<WorkingExperience> WorkingExperience { get; set; }
+
+        #endregion
+
+        #region AcademicRecordDataModel
+
+        public List<AcademicRecord> AcademicRecords { get; set; }
+
+        #endregion
+
+        #region WorkshopRecordDataModel
+
+        public List<WorkshopRecord> WorkshopRecords { get; set; }
+
+        #endregion
+
+        #region EmployeePermataBankAccountDataModel
+
+        public string EmployeePermataAccountId { get; set; }
+
+        public string EmployeePermataAccountName { get; set; }
+
+        #endregion
+
+        #region OtherRecordDataModel
+
+        public string NPWPId { get; set; }
+
+        public string JamsostekId { get; set; }
+
         #endregion
     }
 }

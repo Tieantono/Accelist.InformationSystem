@@ -13,5 +13,10 @@ namespace Accelist.InformationSystem.Web.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult Views()
+        {
+            return View();
+        }
     }
 }

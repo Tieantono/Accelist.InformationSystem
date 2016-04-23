@@ -66,3 +66,9 @@ C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem
 C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.csprojResolveAssemblyReference.cache
 C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.dll
 C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Web.Http.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Web.Http.WebHost.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Net.Http.Formatting.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Web.Http.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\System.Web.Http.WebHost.xml

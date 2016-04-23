@@ -1,0 +1,28 @@
+﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
+
+<h2 class="register-sub-header"><strong>Other Data</strong></h2>
+
+<div class="form-group">
+    @Html.LabelFor(Q => Q.NPWPId, "NPWP Number", new { @class = "col-sm-2 control-label" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(Q => Q.NPWPId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.NPWPId, "", new { @class = "error-msg" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(Q => Q.JamsostekId, "Jamsostek Number", new { @class = "col-sm-2 control-label" })
+    <div class="col-sm-10">
+        @Html.TextBoxFor(Q => Q.JamsostekId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(Q => Q.JamsostekId, "", new { @class = "error-msg" })
+    </div>
+</div>
+
+<div class="list-inline pull-right">
+    <button id="bankBtn" type="button" class="btn btn-default">
+        Prev
+    </button>
+    <button id="agreeBtn" type="button" class="btn btn-default">
+        Next
+    </button>
+</div>
