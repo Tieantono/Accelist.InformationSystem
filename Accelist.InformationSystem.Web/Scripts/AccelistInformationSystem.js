@@ -22,6 +22,7 @@
     var workTotal = 0;
     var workshop = 0;
     var workshopTotal = 0;
+    var currentFormFlag = "#personalForm";
 
     if ($("#personalForm").css("display") != "none") {
         $("#personalList").addClass("active");
@@ -30,7 +31,7 @@
     //$("#formList button").click(function () {
     //    $(this).addClass("form-control");
     //});
-    
+
     $("#Status").change(function () {
         if ($("#Status option:selected").text() == "Single") {
             $("#personalForm #mainFamilyBtn").attr("id", "biologicalFamilyBtn");
@@ -78,6 +79,7 @@
         });
         $("#personalList").removeClass("active");
         $("#biologicalFamilyList").addClass("active");
+        currentFormFlag = "#biologicalFamilyForm";
     });
     $("#personalForm").on("click", "#mainFamilyBtn", function () {
         $("#personalForm").fadeOut("fast", function () {
@@ -92,6 +94,7 @@
         });
         $("#biologicalFamilyList").removeClass("active");
         $("#personalList").addClass("active");
+        currentFormFlag = "#personalForm";
     });
     $("#biologicalFamilyForm").on("click", "#mainFamilyBtn", function () {
         $("#biologicalFamilyForm").fadeOut("fast", function () {
@@ -224,7 +227,7 @@
         $("#siblingJobGroup" + sibling + "").append('<label id="siblingJobLabel' + sibling + '" for="siblingJobText' + sibling + '" class="col-sm-2 control-label">Job/Occupation</label>');
         $("#siblingJobGroup" + sibling + "").append('<div id="siblingJobColumn' + sibling + '" class="col-sm-10"></div>');
         $("#siblingJobColumn" + sibling + "").append('<input id="siblingJobText' + sibling + '" type="text" class="form-control"/>');
-        
+
         siblingTotal = $("div[id^='siblingFormContainer']").length;
     });
     $("#siblingForm").on("click", "#addSiblingBtn", function () {
@@ -570,7 +573,7 @@
     });
 
     //Validation
-    
+
     var testData = [];
     function postTest() {
         testData.push({ Tests: "test" });
@@ -640,6 +643,27 @@
     //}
 
 
+    //$("#formList button").each(function () {
+    //    $("button").click(function () {
+    //        //alert($(this).attr("id"));
+    //        if ($(this).hasClass("disabled") == false) {
+    //            if ($(this).attr("id") == "personalList") {
+    //                $(currentFormFlag).fadeOut("fast");
+    //                $("#personalBtn").trigger("click");
+    //            }
+    //            if ($(this).attr("id") == "mainFamilyList") {
+    //                $(currentFormFlag).fadeOut("fast");
+    //                $("#personalForm #mainFamilyBtn").trigger("click");
+    //            }
+    //        }
+    //        else {
+    //            alert("test");
+    //        }
+    //    });
+    //    return false;
+    //});
+
+
     function postChild() {
         $.ajax({
             url: '/Account/Register',
@@ -647,6 +671,34 @@
             data: JSON.stringify(childData),
             contentType: 'application/json;',
             dataType: "json"
+        });
+    }
+});
+
+
+$("#employeeListPage").ready(function () {
+    GenerateRowNumber();
+    
+    $(".dataRow").on("click", ".deleteEmployeeBtn", function () {
+        var employeeId = $(this).val();
+        $(this).closest(".dataRow").fadeOut("slow", function () {
+            $(this).closest(".dataRow").remove();
+            //deleteEmployee(employeeId);
+            GenerateRowNumber();
+        });
+    });
+    
+    function GenerateRowNumber() {
+        $(".dataRow").each(function (i) {
+            $(".testColumn", this).html(i + 1);
+        });
+    }
+
+    function deleteEmployee(indexString) {
+        $.ajax({
+            url: '/Employee/DeleteEmployee',
+            type: 'post',
+            data: { 'index': indexString }
         });
     }
 });
