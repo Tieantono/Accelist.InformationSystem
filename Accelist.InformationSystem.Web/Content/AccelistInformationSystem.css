@@ -47,6 +47,7 @@
 
 .error-msg {
     color: red;
+    width: 400px;
 }
 
 .child-form {

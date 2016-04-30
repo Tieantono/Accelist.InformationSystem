@@ -1,0 +1,44 @@
+﻿@model Accelist.InformationSystem.APILayer.Models.EmployeeTemp
+
+@{
+    ViewBag.Title = "RegisterEmployeeTemp";
+}
+
+<h2>RegisterEmployeeTemp</h2>
+
+<div class="container">
+    <div class="row">
+        <form action="@Url.Action("RegisterEmployeeTemp", "Account")" method="post" class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.EmployeeName, "Employee Name", new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(Q => Q.EmployeeName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.EmployeePhone, "Employee Phone", new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(Q => Q.EmployeePhone, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.EmployeeGender, "Employee Gender", new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(Q => Q.EmployeeGender, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-9">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <a href="@Url.Action("EmployeeList", "Employee")" class="btn btn-default" role="button">
+            Employee List
+        </a>
+    </div>
+</div>

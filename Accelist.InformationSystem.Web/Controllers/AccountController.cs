@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Accelist.InformationSystem.APILayer;
+using Accelist.InformationSystem.APILayer.Models;
 using Accelist.InformationSystem.APILayer.Models.ViewModels;
 
 namespace Accelist.InformationSystem.Web.Controllers
@@ -35,6 +36,19 @@ namespace Accelist.InformationSystem.Web.Controllers
                     }
                     return RedirectToAction("Home");
                 }
+                return View();
+            }
+        }
+
+        public ActionResult RegisterEmployeeTemp(){
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegisterEmployeeTemp(EmployeeTemp employeeTemp) {
+            using (var db = new AccelistInformationSystemDbContext()) {
+                db.RegisterEmployeeTemp(employeeTemp);
+
                 return View();
             }
         }

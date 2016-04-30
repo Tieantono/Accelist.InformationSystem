@@ -52,6 +52,7 @@
     <Compile Include="AccelistInformationSystemDbContext.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeAccount.cs" />
+    <Compile Include="Models\EmployeeTemp.cs" />
     <Compile Include="Models\ViewModels\LoginModel.cs" />
     <Compile Include="Models\ViewModels\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
