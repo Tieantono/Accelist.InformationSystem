@@ -1,6 +1,71 @@
 ﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
 
-<h2 class="register-sub-header"><strong>Working Experience Data</strong></h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title panel-title-blue">
+            <h2>
+                <strong>Working Experience Data</strong>
+            </h2>
+        </div>
+    </div>
+    <div class="panel-body" style="font-weight: 600">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>
+                        No.
+                    </td>
+                    <td>
+                        Company Name
+                    </td>
+                    <td>
+                        Position
+                    </td>
+                    <td>
+                        Experience
+                    </td>
+                    <td>
+                        Start Year
+                    </td>
+                    <td>
+                        End Year
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="control-label">
+                            1.
+                        </label>
+                    </td>
+                    <td>
+                            @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pull-right">
+            <button type="button" class="btn btn-success">
+                Add Working Experience
+            </button>
+        </div>
+    </div>
+</div>
+
+@*<h2 class="register-sub-header"><strong>Working Experience Data</strong></h2>
 
 <div class="row child-form">
     <h3 id="work" class="col-sm-1 col-sm-offset-1">
@@ -26,4 +91,4 @@
     <button id="academicBtn" type="button" class="btn btn-default">
         Next
     </button>
-</div>
+</div>*@

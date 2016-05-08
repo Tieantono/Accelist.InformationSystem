@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 {
-    #region PersonalDataEnum
+    #region RegisterEnum
     public enum Gender
     {
         Male,
@@ -39,6 +39,10 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         WNI,
         WNA
     }
+
+    public enum Religion {
+        Buddha, Islam, Catholic, Christian, Konghucu, Other
+    }
     #endregion
 
     public class Child{
@@ -51,10 +55,6 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public string ChildBirthDate { get; set; }
 
         public string ChildJob { get; set; }
-    }
-
-    public class Test {
-        public string Tests { get; set; }
     }
 
     public class Sibling{
@@ -158,7 +158,7 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         [Display(Name = "Religion")]
         [Required(ErrorMessage = "Religion must be filled")]
-        public string Religion { get; set; }
+        public Religion Religion { get; set; }
 
         [Required(ErrorMessage = "Total Sibling must be filled")]
         public int TotalSibling { get; set; }
@@ -174,6 +174,9 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         [Display(Name = "Citizenship")]
         public Citizenship Citizenship { get; set; }
+
+        //will be added to DB
+        public string AccelistID { get; set; }
         #endregion
 
         #region MainFamilyDataModel
@@ -243,7 +246,15 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         public string EmployeePermataAccountName { get; set; }
 
-        #endregion
+        #endregion //delete later
+
+#region BankAccountDataModel
+        public string BankAccount { get; set; }
+
+        public List<string> BankName { get; set; }
+
+        public string AccountNumber { get; set; }
+#endregion
 
         #region OtherRecordDataModel
 

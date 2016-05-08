@@ -1,19 +1,21 @@
 ﻿/*Top Navbar*/
 .top-navbar-container {
-    box-shadow: 0px 10px 20px #ffe75f;
+    /*box-shadow: 0px 10px 20px #ffe75f;*/
+    z-index: 999;
+    min-height: 80px;
     background-color: white;
 }
 
 /*Layout*/
 .body-container {
-    margin-top: 30px;
+    margin-top: 100px;
 }
 
 /*Login*/
 .login-container {
     margin: 0 auto;
     margin-top: 20px;
-    padding: 20px 20px 20px 20px ;
+    padding: 20px 20px 20px 20px;
     text-align: center;
     border-style: solid;
     border-color: blue;
@@ -30,19 +32,26 @@
 }
 
 /*Register*/
+.background-page {
+    background-color: #eef4f7;
+}
+
 .register-container {
     border-style: solid;
     border-color: #bababa;
     border-width: 0px;
     border-radius: 10px;
-    padding: 20px 30px 20px 10px;
-    box-shadow: 0px 0px 10px #d9d9d9;
+    padding: 20px 30px 20px 30px;
+    background-color: white;
+    margin-bottom: 30px;
+    /*box-shadow: 0px 0px 10px #d9d9d9;*/
 }
 
 .register-sub-header {
     margin-top: -5px;
     margin-bottom: 20px;
     padding: 0px 0px 0px 30px;
+    color: #1fc1ff;
 }
 
 .error-msg {
@@ -54,7 +63,7 @@
     margin-bottom: 20px;
 }
 
-.child-btn-group{
+.child-btn-group {
     top: 15px;
     position: relative;
     bottom: 15px;
@@ -62,4 +71,64 @@
 
 .child-btn {
     float: right;
+}
+
+.nav-side-font {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+.address-textarea {
+    height: 150px
+}
+
+.panel-title-blue {
+    color: #00c5dc !important;
+}
+
+
+.nav-side-link {
+    padding-top: 10px;
+    text-align: center;
+    height: 80px;
+}
+
+.nav-side-register-icon {
+    background-image: url(../../Assets/Images/register_logo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto 0 auto;
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+.nav-top-logo {
+    position: relative;
+    padding-top: 10px;
+}
+
+.body-content-auto-width {
+    width: auto !important;
 }

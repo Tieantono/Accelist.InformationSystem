@@ -112,3 +112,14 @@ C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accel
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.csprojResolveAssemblyReference.cache
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.dll
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.Web\obj\Debug\Accelist.InformationSystem.Web.pdb
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Owin.dll
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.Web\bin\Microsoft.Owin.Security.Cookies.xml

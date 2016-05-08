@@ -4,7 +4,11 @@
     ViewBag.Title = "RegisterEmployeeTemp";
 }
 
-<h2>RegisterEmployeeTemp</h2>
+@section styles{
+    <link href="~/Content/AccelistInformationSystem.css" type="text/css" rel="stylesheet" />
+}
+
+<h2>Register Temporary Employee</h2>
 
 <div class="container">
     <div class="row">
@@ -16,12 +20,26 @@
                 </div>
             </div>
             <div class="form-group">
+                @Html.LabelFor(Q => Q.EmployeeEmail, "Employee Email", new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(Q => Q.EmployeeEmail, new { @class = "form-control" })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(Q => Q.EmployeeEmail, "", new { @class = "error-msg" })
+                </div>
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(Q => Q.EmployeePhone, "Employee Phone", new { @class = "control-label col-sm-4" })
                 <div class="col-sm-6">
                     @Html.TextBoxFor(Q => Q.EmployeePhone, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
+                @*@Html.LabelFor(Q => Q.EmployeeGenderEnum, "Employee Gender", new { @class = "control-label col-sm-4" })
+                <div class="col-md-6">
+                    @Html.EnumDropDownListFor(Q => Q.EmployeeGenderEnum, new { @class = "form-control" })
+                </div>*@
+                
                 @Html.LabelFor(Q => Q.EmployeeGender, "Employee Gender", new { @class = "control-label col-sm-4" })
                 <div class="col-sm-6">
                     @Html.TextBoxFor(Q => Q.EmployeeGender, new { @class = "form-control" })

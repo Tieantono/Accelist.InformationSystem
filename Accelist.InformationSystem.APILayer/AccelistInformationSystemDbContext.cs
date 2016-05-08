@@ -8,6 +8,7 @@ using System.Configuration;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Accelist.InformationSystem.APILayer.Models;
+using Accelist.InformationSystem.APILayer.Models.ViewModels;
 
 namespace Accelist.InformationSystem.APILayer
 {
@@ -16,7 +17,7 @@ namespace Accelist.InformationSystem.APILayer
         public readonly SqlConnection Connection;
 
         //connectionName = "AccelistInformationSystem"
-        public AccelistInformationSystemDbContext(string connectionName = "MyDatabase")
+        public AccelistInformationSystemDbContext(string connectionName = "AccelistInformationSystem")
         {
             var connectionInfo = ConfigurationManager.ConnectionStrings[connectionName];
             Connection = new SqlConnection(connectionInfo.ConnectionString);
@@ -52,8 +53,10 @@ FROM Employee
         }
 
         public void RegisterEmployeeTemp(EmployeeTemp employeeTemp){
+
             Connection.Insert(new EmployeeTemp{
                EmployeeName =  employeeTemp.EmployeeName,
+               EmployeeEmail = employeeTemp.EmployeeEmail,
                EmployeePhone = employeeTemp.EmployeePhone,
                EmployeeGender = employeeTemp.EmployeeGender
             });
@@ -73,6 +76,7 @@ WHERE EmployeeId = @employeeId
             {
                 EmployeeId = employeeTemp.EmployeeId,
                 EmployeeName = employeeTemp.EmployeeName,
+                EmployeeEmail = employeeTemp.EmployeeEmail,
                 EmployeePhone = employeeTemp.EmployeePhone,
                 EmployeeGender = employeeTemp.EmployeeGender
             });
@@ -101,6 +105,13 @@ ORDER BY EmployeeName ASC
             {
                 EmployeeId = employeeId
             });
+        }
+
+        public List<string> GetBankList() {
+            return Connection.Query<string>(@"
+SELECT BankName
+FROM BankList
+").ToList();
         }
     }
 }

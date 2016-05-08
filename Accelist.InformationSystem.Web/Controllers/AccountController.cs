@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Accelist.InformationSystem.APILayer;
 using Accelist.InformationSystem.APILayer.Models;
 using Accelist.InformationSystem.APILayer.Models.ViewModels;
+using Microsoft.Owin.Security;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity;
 
 namespace Accelist.InformationSystem.Web.Controllers
 {
@@ -17,18 +20,11 @@ namespace Accelist.InformationSystem.Web.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult jsonTest()
-        {
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult Register(RegisterModel registerModel, List<Child> childs, List<Test> test)
+        public ActionResult Register(RegisterModel registerModel, List<Child> childs)
         {
             using (var db = new AccelistInformationSystemDbContext())
             {
-                test = null;
                 if (ModelState.IsValid)
                 {
                     foreach (var x in childs) {
@@ -37,6 +33,38 @@ namespace Accelist.InformationSystem.Web.Controllers
                     return RedirectToAction("Home");
                 }
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel loginModel) {
+            using (var db = new AccelistInformationSystemDbContext()) {
+                var claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.Name, loginModel.Email));
+                var id = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                var context = Request.GetOwinContext();
+                var authenticationManager = context.Authentication;
+                authenticationManager.SignIn(id);
+
+                return RedirectToAction("EmployeeList", "Employee", ViewData["email"]);
+            }
+        }
+
+        public ActionResult RegisterEmployee() {
+            using (var db = new AccelistInformationSystemDbContext())
+            {
+                RegisterModel registerModel = new RegisterModel();
+                registerModel.BankName = db.GetBankList();
+
+                return View(registerModel);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult RegisterEmployee(Employee employee) {
+            using (var db = new AccelistInformationSystemDbContext())
+            {
+                return RedirectToAction("EmployeeList", "Employee");
             }
         }
 
@@ -49,7 +77,7 @@ namespace Accelist.InformationSystem.Web.Controllers
             using (var db = new AccelistInformationSystemDbContext()) {
                 db.RegisterEmployeeTemp(employeeTemp);
 
-                return View();
+                return RedirectToAction("EmployeeList", "Employee");
             }
         }
     }
