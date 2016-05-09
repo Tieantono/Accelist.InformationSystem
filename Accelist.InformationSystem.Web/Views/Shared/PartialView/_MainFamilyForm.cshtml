@@ -19,7 +19,10 @@
                         Full Name
                     </td>
                     <td>
-                        Date/Place of Birth
+                        Date of Birth
+                    </td>
+                    <td>
+                        Place of Birth
                     </td>
                     <td>
                         Gender
@@ -40,12 +43,10 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                        <div class="col-sm-6">
                             @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
-                        </div>
-                        <div class="col-sm-6">
+                    </td>
+                    <td>
                             @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
-                        </div>
                     </td>
                     <td>
                             @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })
@@ -64,12 +65,10 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                        <div class="col-sm-6">
                             @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
-                        </div>
-                        <div class="col-sm-6">
-                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
-                        </div>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
                         @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })

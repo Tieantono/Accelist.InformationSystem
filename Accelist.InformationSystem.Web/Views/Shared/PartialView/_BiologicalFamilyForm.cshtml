@@ -19,7 +19,10 @@
                         Full Name
                     </td>
                     <td>
-                        Date/Place of Birth
+                        Date of Birth
+                    </td>
+                    <td>
+                        Place of Birth
                     </td>
                     <td>
                         Gender
@@ -41,12 +44,10 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                        <div class="col-sm-6">
-                            @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
-                        </div>
-                        <div class="col-sm-6">
                             @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
-                        </div>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
                     </td>
                     <td>
                         <label class="control-label">
@@ -68,12 +69,10 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                        <div class="col-sm-6">
                             @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
-                        </div>
-                        <div class="col-sm-6">
-                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
-                        </div>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
                         <label class="control-label">
@@ -94,13 +93,10 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                        <div class="col-sm-6">
                             @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
-                        </div>
-                        <div class="col-sm-6">
-                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
-                        </div>
                     </td>
+                    <td>
+                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })</td>
                     <td>
                         @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })
                     </td>
@@ -122,99 +118,4 @@
             </button>
         </div>
     </div>
-</div>
-@*<h2 class="register-sub-header"><strong>Biological Family Data</strong></h2>
-<div>
-    <h3 id="father" class="col-sm-offset-1"><strong>Father</strong></h3>
-</div>
-
-<div class="form-group">
-    @Html.LabelFor(Q => Q.DadName, "Name", new { @class = "col-sm-2 control-label" })
-    <div class="col-sm-10">
-        @Html.TextBoxFor(Q => Q.DadName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.DadName, "", new { @class = "error-msg" })
-    </div>
-</div>
-<div class="form-group">
-    <label for="DadBirthPlace" class="col-sm-2 control-label">
-        Birth Place
-    </label>
-    <div class="col-sm-4">
-        @Html.TextBoxFor(Q => Q.DadBirthPlace, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.DadBirthPlace, "", new { @class = "error-msg" })
-    </div>
-    <label for="DadBirthDate" class="col-sm-2 control-label col-sm-pull-1">
-        & Date
-    </label>
-    <div class="col-sm-4 col-sm-pull-1">
-        @Html.TextBoxFor(Q => Q.DadBirthDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.DadBirthDate, "", new { @class = "error-msg" })
-    </div>
-</div>
-<div class="form-group">
-    @Html.LabelFor(Q => Q.DadJob, "Job/Occupation", new { @class = "col-sm-2 control-label" })
-    <div class="col-sm-10">
-        @Html.TextBoxFor(Q => Q.DadJob, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.DadJob, "", new { @class = "error-msg" })
-    </div>
-</div>
-@Html.HiddenFor(Q => Q.DadGender)
-<div>
-    <h3 id="mother" class="col-sm-offset-1"><strong>Mother</strong></h3>
-</div>
-
-<div class="form-group">
-    @Html.LabelFor(Q => Q.MomName, "Name", new { @class = "col-sm-2 control-label" })
-    <div class="col-sm-10">
-        @Html.TextBoxFor(Q => Q.MomName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.MomName, "", new { @class = "error-msg" })
-    </div>
-</div>
-<div class="form-group">
-    <label for="MomBirthPlace" class="col-sm-2 control-label">
-        Birth Place
-    </label>
-    <div class="col-sm-4">
-        @Html.TextBoxFor(Q => Q.MomBirthPlace, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.MomBirthPlace, "", new { @class = "error-msg" })
-    </div>
-    <label for="MomBirthDate" class="col-sm-2 control-label col-sm-pull-1">
-        & Date
-    </label>
-    <div class="col-sm-4 col-sm-pull-1">
-        @Html.TextBoxFor(Q => Q.MomBirthDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.MomBirthDate, "", new { @class = "error-msg" })
-    </div>
-</div>
-<div class="form-group">
-    @Html.LabelFor(Q => Q.MomJob, "Job/Occupation", new { @class = "col-sm-2 control-label" })
-    <div class="col-sm-10">
-        @Html.TextBoxFor(Q => Q.MomJob, new { @class = "form-control" })
-        @Html.ValidationMessageFor(Q => Q.MomJob, "", new { @class = "error-msg" })
-    </div>
-</div>
-@Html.HiddenFor(Q => Q.MomGender)
-
-<div class="row child-form">
-    <h3 id="sibling" class="col-sm-1 col-sm-offset-1">
-        <strong>Sibling</strong>
-    </h3>
-    <div class="child-btn-group">
-        <button id="addSiblingBtn" type="button" class="col-sm-1 btn btn-success child-btn">
-            <span class="glyphicon glyphicon-plus"></span>
-        </button>
-        <button id="removeSiblingBtn" type="button" class="col-sm-1 btn btn-danger child-btn">
-            <span class="glyphicon glyphicon-minus"></span>
-        </button>
-    </div>
-</div>
-<div id="siblingForm">
-</div>
-<div class="list-inline pull-right">
-    <button id="workExpBtn" type="button" class="btn btn-default pull-right">
-        Next
-    </button>
-    <button id="mainFamilyBtn" type="button" class="btn btn-default pull-right">
-        Prev
-    </button>
-</div>*@
+</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

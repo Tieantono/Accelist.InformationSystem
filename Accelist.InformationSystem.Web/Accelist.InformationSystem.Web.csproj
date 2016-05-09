@@ -166,7 +166,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\accelist_logo.png" />
+    <Content Include="Assets\Images\accelist_logo1.png" />
     <Content Include="Assets\Images\register_logo.png" />
     <Content Include="Assets\Images\user.png" />
     <Content Include="Content\AccelistInformationSystem.css" />
