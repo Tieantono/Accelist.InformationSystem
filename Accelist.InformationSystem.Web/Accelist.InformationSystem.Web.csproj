@@ -167,6 +167,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\accelist_logo1.png" />
+    <Content Include="Assets\Images\btn_faq.png" />
+    <Content Include="Assets\Images\btn_filter.png" />
+    <Content Include="Assets\Images\btn_logout.png" />
+    <Content Include="Assets\Images\btn_message.png" />
+    <Content Include="Assets\Images\btn_notif.png" />
+    <Content Include="Assets\Images\btn_others.png" />
+    <Content Include="Assets\Images\btn_others_2.png" />
+    <Content Include="Assets\Images\btn_settings.png" />
     <Content Include="Assets\Images\register_logo.png" />
     <Content Include="Assets\Images\user.png" />
     <Content Include="Content\AccelistInformationSystem.css" />
