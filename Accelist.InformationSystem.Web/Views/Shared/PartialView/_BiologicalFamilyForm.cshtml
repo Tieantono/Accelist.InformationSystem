@@ -1,7 +1,7 @@
 ﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
 
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="panel panel-default panel-align">
+    <div class="panel-heading" style="background-color: white">
         <div class="panel-title panel-title-blue">
             <h2>
                 <strong>Biological Family Data</strong>
@@ -44,7 +44,7 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
                         @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
@@ -69,7 +69,7 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                            @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
                     </td>
                     <td>
                         @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
@@ -93,10 +93,11 @@
                         @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
                     </td>
                     <td>
-                            @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
                     </td>
                     <td>
-                            @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })</td>
+                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+                    </td>
                     <td>
                         @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })
                     </td>

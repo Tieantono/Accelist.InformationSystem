@@ -1,7 +1,7 @@
 ﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
 
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="panel panel-default panel-align">
+    <div class="panel-heading" style="background-color: white">
         <div class="panel-title panel-title-blue">
             <h2>
                 <strong>Academic Record Data</strong>
@@ -49,8 +49,8 @@
                         @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
                     </td>
                 </tr>
-                </tbody>
-                </table>
+            </tbody>
+        </table>
         <div class="pull-right">
             <button type="button" class="btn btn-success">
                 Add Academic Level
@@ -60,205 +60,205 @@
 </div>
 @*<h2 class="register-sub-header"><strong>Academic Data</strong></h2>
 
-<div id="SD">
-    <div class="row">
-        <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
-            <strong>SD</strong>
-        </h3>
-    </div>
-    <div class="form-group">
-        <label for="SDNameText" class="col-sm-2 control-label">
-            School Name
-        </label>
-        <div class="col-sm-10">
-            <input id="SDNameText" type="text" class="form-control"/>
+    <div id="SD">
+        <div class="row">
+            <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
+                <strong>SD</strong>
+            </h3>
+        </div>
+        <div class="form-group">
+            <label for="SDNameText" class="col-sm-2 control-label">
+                School Name
+            </label>
+            <div class="col-sm-10">
+                <input id="SDNameText" type="text" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SDStartDateText" class="col-sm-2 control-label">
+                Enter Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SDStartDateText" type="text" class="form-control" />
+            </div>
+            <label for="SDFinishDateText" class="col-sm-2 control-label">
+                Finish Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SDFinishDateText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SDAchievementText" class="col-sm-2 control-label">
+                Achievement/
+                Organitation(s)
+            </label>
+            <div class="col-sm-10">
+                <input id="SDAchievementText" type="text" class="form-control" />
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="SDStartDateText" class="col-sm-2 control-label">
-            Enter Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SDStartDateText" type="text" class="form-control" />
-        </div>
-        <label for="SDFinishDateText" class="col-sm-2 control-label">
-            Finish Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SDFinishDateText" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="SDAchievementText" class="col-sm-2 control-label">
-            Achievement/
-            Organitation(s)
-        </label>
-        <div class="col-sm-10">
-            <input id="SDAchievementText" type="text" class="form-control" />
-        </div>
-    </div>
-</div>
 
-<div id="SMP">
-    <div class="row">
-        <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
-            <strong>SMP</strong>
-        </h3>
-    </div>
-    <div class="form-group">
-        <label for="SMPNameText" class="col-sm-2 control-label">
-            School Name
-        </label>
-        <div class="col-sm-10">
-            <input id="SMPNameText" type="text" class="form-control" />
+    <div id="SMP">
+        <div class="row">
+            <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
+                <strong>SMP</strong>
+            </h3>
+        </div>
+        <div class="form-group">
+            <label for="SMPNameText" class="col-sm-2 control-label">
+                School Name
+            </label>
+            <div class="col-sm-10">
+                <input id="SMPNameText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SMPStartDateText" class="col-sm-2 control-label">
+                Enter Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SMPStartDateText" type="text" class="form-control" />
+            </div>
+            <label for="SMPFinishDateText" class="col-sm-2 control-label">
+                Finish Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SMPFinishDateText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SMPAchievementText" class="col-sm-2 control-label">
+                Achievement/
+                Organitation(s)
+            </label>
+            <div class="col-sm-10">
+                <input id="SMPAchievementText" type="text" class="form-control" />
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="SMPStartDateText" class="col-sm-2 control-label">
-            Enter Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SMPStartDateText" type="text" class="form-control" />
-        </div>
-        <label for="SMPFinishDateText" class="col-sm-2 control-label">
-            Finish Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SMPFinishDateText" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="SMPAchievementText" class="col-sm-2 control-label">
-            Achievement/
-            Organitation(s)
-        </label>
-        <div class="col-sm-10">
-            <input id="SMPAchievementText" type="text" class="form-control" />
-        </div>
-    </div>
-</div>
 
-<div id="SMU">
-    <div class="row">
-        <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
-            <strong>SMU</strong>
-        </h3>
-    </div>
-    <div class="form-group">
-        <label for="SMUNameText" class="col-sm-2 control-label">
-            School Name
-        </label>
-        <div class="col-sm-10">
-            <input id="SMUNameText" type="text" class="form-control" />
+    <div id="SMU">
+        <div class="row">
+            <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
+                <strong>SMU</strong>
+            </h3>
+        </div>
+        <div class="form-group">
+            <label for="SMUNameText" class="col-sm-2 control-label">
+                School Name
+            </label>
+            <div class="col-sm-10">
+                <input id="SMUNameText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SMUStartDateText" class="col-sm-2 control-label">
+                Enter Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SMUStartDateText" type="text" class="form-control" />
+            </div>
+            <label for="SMUFinishDateText" class="col-sm-2 control-label">
+                Finish Date
+            </label>
+            <div class="col-sm-4">
+                <input id="SMUFinishDateText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SMUAchievementText" class="col-sm-2 control-label">
+                Achievement/
+                Organitation(s)
+            </label>
+            <div class="col-sm-10">
+                <input id="SMUAchievementText" type="text" class="form-control" />
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="SMUStartDateText" class="col-sm-2 control-label">
-            Enter Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SMUStartDateText" type="text" class="form-control" />
-        </div>
-        <label for="SMUFinishDateText" class="col-sm-2 control-label">
-            Finish Date
-        </label>
-        <div class="col-sm-4">
-            <input id="SMUFinishDateText" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="SMUAchievementText" class="col-sm-2 control-label">
-            Achievement/
-            Organitation(s)
-        </label>
-        <div class="col-sm-10">
-            <input id="SMUAchievementText" type="text" class="form-control" />
-        </div>
-    </div>
-</div>
 
-<div id="D3">
-    <div class="row">
-        <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
-            <strong>D3</strong>
-        </h3>
-    </div>
-    <div class="form-group">
-        <label for="D3NameText" class="col-sm-2 control-label">
-            University Name
-        </label>
-        <div class="col-sm-10">
-            <input id="D3NameText" type="text" class="form-control" />
+    <div id="D3">
+        <div class="row">
+            <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
+                <strong>D3</strong>
+            </h3>
+        </div>
+        <div class="form-group">
+            <label for="D3NameText" class="col-sm-2 control-label">
+                University Name
+            </label>
+            <div class="col-sm-10">
+                <input id="D3NameText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="D3StartDateText" class="col-sm-2 control-label">
+                Enter Date
+            </label>
+            <div class="col-sm-4">
+                <input id="D3StartDateText" type="text" class="form-control" />
+            </div>
+            <label for="D3FinishDateText" class="col-sm-2 control-label">
+                Finish Date
+            </label>
+            <div class="col-sm-4">
+                <input id="D3FinishDateText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="D3AchievementText" class="col-sm-2 control-label">
+                Achievement/
+                Organitation(s)
+            </label>
+            <div class="col-sm-10">
+                <input id="D3AchievementText" type="text" class="form-control" />
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="D3StartDateText" class="col-sm-2 control-label">
-            Enter Date
-        </label>
-        <div class="col-sm-4">
-            <input id="D3StartDateText" type="text" class="form-control" />
-        </div>
-        <label for="D3FinishDateText" class="col-sm-2 control-label">
-            Finish Date
-        </label>
-        <div class="col-sm-4">
-            <input id="D3FinishDateText" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="D3AchievementText" class="col-sm-2 control-label">
-            Achievement/
-            Organitation(s)
-        </label>
-        <div class="col-sm-10">
-            <input id="D3AchievementText" type="text" class="form-control" />
-        </div>
-    </div>
-</div>
 
-<div id="S1">
-    <div class="row">
-        <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
-            <strong>S1</strong>
-        </h3>
-    </div>
-    <div class="form-group">
-        <label for="S1NameText" class="col-sm-2 control-label">
-            University Name
-        </label>
-        <div class="col-sm-10">
-            <input id="S1NameText" type="text" class="form-control" />
+    <div id="S1">
+        <div class="row">
+            <h3 id="SDHeader" class="col-sm-1 col-sm-offset-1">
+                <strong>S1</strong>
+            </h3>
+        </div>
+        <div class="form-group">
+            <label for="S1NameText" class="col-sm-2 control-label">
+                University Name
+            </label>
+            <div class="col-sm-10">
+                <input id="S1NameText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="S1StartDateText" class="col-sm-2 control-label">
+                Enter Date
+            </label>
+            <div class="col-sm-4">
+                <input id="S1StartDateText" type="text" class="form-control" />
+            </div>
+            <label for="S1FinishDateText" class="col-sm-2 control-label">
+                Finish Date
+            </label>
+            <div class="col-sm-4">
+                <input id="S1FinishDateText" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="S1AchievementText" class="col-sm-2 control-label">
+                Achievement/
+                Organitation(s)
+            </label>
+            <div class="col-sm-10">
+                <input id="S1AchievementText" type="text" class="form-control" />
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="S1StartDateText" class="col-sm-2 control-label">
-            Enter Date
-        </label>
-        <div class="col-sm-4">
-            <input id="S1StartDateText" type="text" class="form-control" />
-        </div>
-        <label for="S1FinishDateText" class="col-sm-2 control-label">
-            Finish Date
-        </label>
-        <div class="col-sm-4">
-            <input id="S1FinishDateText" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="S1AchievementText" class="col-sm-2 control-label">
-            Achievement/
-            Organitation(s)
-        </label>
-        <div class="col-sm-10">
-            <input id="S1AchievementText" type="text" class="form-control" />
-        </div>
-    </div>
-</div>
-<div class="list-inline pull-right">
-    <button id="workExpBtn" type="button" class="btn btn-default">
-        Prev
-    </button>
-    <button id="workshopBtn" type="button" class="btn btn-default">
-        Next
-    </button>
-</div>*@
+    <div class="list-inline pull-right">
+        <button id="workExpBtn" type="button" class="btn btn-default">
+            Prev
+        </button>
+        <button id="workshopBtn" type="button" class="btn btn-default">
+            Next
+        </button>
+    </div>*@

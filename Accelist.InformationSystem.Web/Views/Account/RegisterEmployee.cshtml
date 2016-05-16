@@ -16,41 +16,41 @@
 
 
 <div class="body-container">
-    <h2 style="color: #5a6779 !important">
+    <h2 style="color: #5a6779 !important; margin-left: 20px">
         <strong>
             Employee Master Data
         </strong>
     </h2>
     <hr style="border-color: #ced5db"/>
-    <div class="col-lg-12">
+    <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px">
         <form action="/Account/Register" method="post" class="form-horizontal" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
-            
-            <div id="personalForm" class="col-md-12">
-                    @Html.Partial("~/Views/Shared/PartialView/_PersonalForm.cshtml")
+
+            <div id="personalForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
+                @Html.Partial("~/Views/Shared/PartialView/_PersonalForm.cshtml")
             </div>
 
-            <div id="mainFamilyForm" class="col-md-12">
+            <div id="mainFamilyForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_MainFamilyForm.cshtml")
             </div>
 
-            <div id="biologicalFamilyForm" class="col-md-12">
+            <div id="biologicalFamilyForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_BiologicalFamilyForm.cshtml")
             </div>
 
-            <div id="workExpForm" class="col-md-12">
+            <div id="workExpForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_WorkExperienceForm.cshtml")
             </div>
 
-            <div id="academicRecordForm" class="col-md-12">
+            <div id="academicRecordForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_AcademicRecordForm.cshtml")
             </div>
 
-            <div id="trainingRecordForm" class="col-md-8">
+            <div id="trainingRecordForm" class="col-md-8" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_TrainingRecordForm.cshtml")
             </div>
 
-            <div id="bankAccountForm" class="col-md-4">
+            <div id="bankAccountForm" class="col-md-4" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_BankAccountForm.cshtml")
             </div>
         </form>
