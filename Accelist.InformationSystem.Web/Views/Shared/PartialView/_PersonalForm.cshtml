@@ -11,29 +11,31 @@
     <div class="panel-body">
         <div class="col-sm-4">
             <div class="form-group">
-                <img src="~/Assets/Images/user.png" class="img-rounded img-responsive" width="225" style="margin:auto">
-                <span class="btn btn-default btn-file row col-xs-10 col-xs-push-1" style="margin-left: 0;margin-top: 10px">
-                    Browse<input type="file" />
-                </span>
+                <img src="~/Assets/Images/user.png" class="img-rounded img-responsive" width="235" style="margin:auto">
+                <div style="text-align: center">
+                    <span class="btn btn-default btn-file row" style="margin: 10px auto; width: 235px">
+                        Browse Test<input id="uploadPhotoBtn" type="file" accept="image/jpeg, image/png"/>
+                    </span>
+                </div>
             </div>
         </div>
 
         <div class="col-sm-8">
-            <div class="form-group" style="margin-bottom:21px">
-                @Html.LabelFor(Q => Q.EmployeeName, "Full Name", new { @class = "col-xs-2 control-label" })
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.EmployeeName, new { @class = "col-xs-2 control-label" })
                 <div class="col-xs-10">
                     @Html.TextBoxFor(Q => Q.EmployeeName, new { @class = "form-control" })
                     @Html.ValidationMessageFor(Q => Q.EmployeeName, "", new { @class = "error-msg" })
                 </div>
             </div>
-            <div class="form-group" style="margin-bottom:22px">
-                @Html.LabelFor(Q => Q.EmployeeId, "Citizen ID Number", new { @class = "col-xs-2 control-label" })
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.CitizenshipId, new { @class = "col-xs-2 control-label" })
                 <div class="col-xs-10">
-                    @Html.TextBoxFor(Q => Q.EmployeeId, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.EmployeeId, "", new { @class = "error-msg" })
+                    @Html.TextBoxFor(Q => Q.CitizenshipId, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.CitizenshipId, "", new { @class = "error-msg" })
                 </div>
             </div>
-            <div class="form-group" style="margin-bottom:21px">
+            <div class="form-group">
                 @Html.LabelFor(Q => Q.Gender, new { @class = "col-xs-2 control-label" })
                 <div class="col-xs-10">
                     @Html.EnumDropDownListFor(Q => Q.Gender, new { @class = "form-control" })
@@ -46,61 +48,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="BirthPlace" class="col-xs-2 control-label">
-                    Place of Birth
-                </label>
+                @Html.LabelFor(Q => Q.BirthPlace, new { @class = "col-xs-2 control-label" })
                 <div class="col-xs-4">
                     @Html.TextBoxFor(Q => Q.BirthPlace, new { @class = "form-control" })
                     @Html.ValidationMessageFor(Q => Q.BirthPlace, "", new { @class = "error-msg" })
                 </div>
-                <label for="BirthDate" class="col-xs-2 control-label">
-                    Date of Birth
-                </label>
+                @Html.LabelFor(Q => Q.BirthDate, new { @class = "col-xs-2 control-label" })
                 <div class="col-xs-4">
                     @Html.TextBoxFor(Q => Q.BirthDate, new { @class = "form-control" })
                     @Html.ValidationMessageFor(Q => Q.BirthDate, "", new { @class = "error-msg" })
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="form-group">
-                @Html.LabelFor(Q => Q.Address, new { @class = "col-xs-2 control-label" })
-                <div class="col-xs-4">
-                    @Html.TextAreaFor(Q => Q.Address, new { @class = "form-control address-textarea" })
-                    @Html.ValidationMessageFor(Q => Q.Address, "", new { @class = "error-msg" })
-                </div>
-                <div class="col-xs-2">
-                    @Html.LabelFor(Q => Q.CurrentAddress, "Current Address:", new { @class = "control-label" })
-                    <div>
-                        <label style="font-weight:lighter;margin-bottom: 0">
-                            <input type="radio" name="address" />
-                            Same as KTP
-                        </label>
-                    </div>
-                    <div>
-                        <label style="font-weight:lighter;margin-bottom: 0">
-                            <input type="radio" name="address" />
-                            New
-                        </label>
-                    </div>
-                </div>
-                <div class="col-xs-4">
-                    @Html.TextAreaFor(Q => Q.CurrentAddress, new { @class = "form-control address-textarea" })
-                    @Html.ValidationMessageFor(Q => Q.CurrentAddress, "", new { @class = "error-msg" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Q => Q.MobilePhone, new { @class = "col-xs-2 control-label" })
-                <div class="col-xs-10">
-                    @Html.TextBoxFor(Q => Q.MobilePhone, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.MobilePhone, "", new { @class = "error-msg" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Q => Q.Email, new { @class = "col-xs-2 control-label" })
-                <div class="col-xs-10">
-                    @Html.TextBoxFor(Q => Q.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.Email, "", new { @class = "error-msg" })
                 </div>
             </div>
             <div class="form-group">
@@ -108,26 +64,10 @@
                 <div class="col-xs-4">
                     @Html.EnumDropDownListFor(Q => Q.Status, new { @class = "form-control" })
                 </div>
-                @Html.LabelFor(Q => Q.StatusChange, "Last Change Date", new { @class = "col-xs-3 control-label" })
-                <div class="col-xs-3">
-                    @Html.TextBoxFor(Q => Q.StatusChange, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.StatusChange, "", new { @class = "error-msg" })
-                </div>
-            </div>
-            <div class="form-group">
-                <span class="col-xs-2 control-label">
-                    <strong>Jamsostek*</strong>
-                </span>
-                <div class="col-xs-10">
-                    @Html.TextBoxFor(Q => Q.JamsostekId, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.JamsostekId, "", new { @class = "error-msg" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Q => Q.NPWPId, "NPWP Number", new { @class = "col-xs-2 control-label" })
-                <div class="col-xs-10">
-                    @Html.TextBoxFor(Q => Q.NPWPId, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(Q => Q.NPWPId, "", new { @class = "error-msg" })
+                @Html.LabelFor(Q => Q.StatusChangeDate, "Last Change Date", new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-4">
+                    @Html.TextBoxFor(Q => Q.StatusChangeDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.StatusChangeDate, "", new { @class = "error-msg" })
                 </div>
             </div>
         </div>

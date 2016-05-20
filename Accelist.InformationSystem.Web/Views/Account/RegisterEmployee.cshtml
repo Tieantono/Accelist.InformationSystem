@@ -8,26 +8,38 @@
     <link href="~/Content/AccelistInformationSystem.css" type="text/css" rel="stylesheet" />
     <script src="~/Scripts/AccelistInformationSystem.js" type="text/javascript"></script>
 }
-@*<div style="border-bottom: 1px solid black; background-color: white; padding-top: 10px; padding-bottom: 10px; margin-bottom: 15px">
-    <h2 style="margin: 0; padding-left:50px">
-        Register
-    </h2>
-</div>*@
-
 
 <div class="body-container">
-    <h2 style="color: #5a6779 !important; margin-left: 20px">
-        <strong>
-            Employee Master Data
-        </strong>
-    </h2>
-    <hr style="border-color: #ced5db"/>
-    <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px">
-        <form action="/Account/Register" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <form action="/Account/Register" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <h2 style="color: #5a6779 !important; margin-left: 20px; margin-right: 20px">
+                <strong>
+                    Employee Master Data
+                </strong>
+                <button class="btn btn-info" style="float: right">
+                    Submit
+                </button>
+            </h2>
+        <hr style="border-color: #ced5db" />
+        <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px">
+
             @Html.AntiForgeryToken()
 
             <div id="personalForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_PersonalForm.cshtml")
+            </div>
+
+            <div class="">
+                <div id="contactForm" class="col-xs-4" style="padding-left: 0px; padding-right: 0px">
+                    @Html.Partial("~/Views/Shared/PartialView/_ContactForm.cshtml")
+                </div>
+
+                <div id="bankAccountForm" class="col-xs-4" style="padding-left: 0px; padding-right: 0px">
+                    @Html.Partial("~/Views/Shared/PartialView/_BankAccountForm.cshtml")
+                </div>
+
+                <div id="otherRecordForm" class="col-xs-4" style="padding-left: 0px; padding-right: 0px">
+                    @Html.Partial("~/Views/Shared/PartialView/_OtherRecordForm.cshtml")
+                </div>
             </div>
 
             <div id="mainFamilyForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
@@ -46,13 +58,10 @@
                 @Html.Partial("~/Views/Shared/PartialView/_AcademicRecordForm.cshtml")
             </div>
 
-            <div id="trainingRecordForm" class="col-md-8" style="padding-left: 0px; padding-right: 0px">
+            <div id="trainingRecordForm" class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                 @Html.Partial("~/Views/Shared/PartialView/_TrainingRecordForm.cshtml")
             </div>
 
-            <div id="bankAccountForm" class="col-md-4" style="padding-left: 0px; padding-right: 0px">
-                @Html.Partial("~/Views/Shared/PartialView/_BankAccountForm.cshtml")
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>

@@ -678,7 +678,7 @@
 
 //$("#employeeListPage").ready(function () {
 //    GenerateRowNumber();
-    
+
 //    $(".dataRow").on("click", ".deleteEmployeeBtn", function () {
 //        var employeeId = $(this).val();
 //        $(this).closest(".dataRow").fadeOut("slow", function () {
@@ -687,7 +687,7 @@
 //            GenerateRowNumber();
 //        });
 //    });
-    
+
 //    function GenerateRowNumber() {
 //        $(".dataRow").each(function (i) {
 //            $(".testColumn", this).html(i + 1);
@@ -702,3 +702,74 @@
 //        });
 //    }
 //});
+
+$(document).ready(function () {
+    $(function () {
+        $("#BirthDate").datepicker();
+    });
+    $(function () {
+        $("#StatusChangeDate").datepicker();
+    });
+
+    //var getExt = $("#uploadPhotoBtn").val().split(".").pop().toLowerCase();
+    //if ($.inArray(ext, ['jpg', 'png']) == -1) {
+    //    alert("Invalid photo's extention!");
+    //}
+    //if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+    //    alert('invalid extension!');
+    //}
+
+    //$("#mateRelation").on("change", "#Gender", function () {
+
+    //});
+    $("#Gender").change(function () {
+        if ($("#Gender option:selected").text() == "Male") {
+            $("#mateRelation").text("Wife");
+        }
+        if ($("#Gender option:selected").text() == "Female") {
+            $("#mateRelation").text("Husband");
+        }
+    })
+
+    $("#Status").change(function () {
+        if ($("#Status option:selected").text() == "Single") {
+            
+        }
+        if ($("#Status option:selected").text() != "Single") {
+            $("#personalForm #biologicalFamilyBtn").attr("id", "mainFamilyBtn");
+            $("#biologicalFamilyForm #personalBtn").attr("id", "mainFamilyBtn");
+            $("#mainFamilyList").removeClass("disabled");
+            singleFlag = false;
+        }
+    })
+
+    $(this).on("change", "#CurrentAddress", function () {
+        if ($(this).val() == "new") {
+            $("textarea", "#currentAddressTextarea").prop("disabled", false);
+        }
+        else {
+            var getVal = $("#addressTextarea").val();
+            $("textarea", "#currentAddressTextarea").val(getVal);
+            $("textarea", "#currentAddressTextarea").prop("disabled", true);
+        }
+    });
+
+    var trainingCount = 0;
+    $("#addTrainingBtn").click(function () {
+        if (trainingCount == 0) {
+            
+        }
+        trainingCount += 1;
+        $("#emptyTrainingRow").remove();
+        appendTrainingRow("#trainingTableRow", trainingCount);
+    });
+
+    function appendTrainingRow(trainingTableRow, trainingCount) {
+        var trainingNumRow = '<td>' + trainingCount + '</td>';
+        var trainingNameRow = '<td><input type="text" class="form-control" /></td>';
+        var trainingProviderRow = '<td><input type="text" class="form-control" /></td>';
+        var trainingPlaceRow = '<td><input type="text" class="form-control" /></td>';
+        var trainingYearRow = '<td><input type="text" class="form-control" /></td>';
+        $(trainingTableRow).append('<tr>' + trainingNumRow + trainingNameRow + trainingProviderRow + trainingPlaceRow + trainingYearRow +'</tr>');
+    }
+});

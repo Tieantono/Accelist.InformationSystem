@@ -1,0 +1,76 @@
+﻿@model Accelist.InformationSystem.APILayer.Models.ViewModels.RegisterModel
+
+<div class="panel panel-default panel-align">
+    <div class="panel-heading" style="background-color: white">
+        <div class="panel-title panel-title-blue">
+            <h2>
+                <strong>Personal Data</strong>
+            </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <img src="~/Assets/Images/user.png" class="img-rounded img-responsive" width="225" style="margin:auto">
+                <span class="btn btn-default btn-file row col-xs-10 col-xs-push-1" style="margin-left: 0;margin-top: 10px">
+                    Browse<input type="file" />
+                </span>
+                <span class="btn btn-default btn-file row col-xs-10 col-xs-push-1" style="margin-left: 0;margin-top: 10px">
+                    Browse<input type="file" />
+                </span>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="form-group" style="margin-bottom:21px">
+                @Html.LabelFor(Q => Q.EmployeeName, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-10">
+                    @Html.TextBoxFor(Q => Q.EmployeeName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.EmployeeName, "", new { @class = "error-msg" })
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom:22px">
+                @Html.LabelFor(Q => Q.CitizenshipId, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-10">
+                    @Html.TextBoxFor(Q => Q.CitizenshipId, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.CitizenshipId, "", new { @class = "error-msg" })
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom:21px">
+                @Html.LabelFor(Q => Q.Gender, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-10">
+                    @Html.EnumDropDownListFor(Q => Q.Gender, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.Religion, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-10">
+                    @Html.EnumDropDownListFor(Q => Q.Religion, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.BirthPlace, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-4">
+                    @Html.TextBoxFor(Q => Q.BirthPlace, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.BirthPlace, "", new { @class = "error-msg" })
+                </div>
+                @Html.LabelFor(Q => Q.BirthDate, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-4">
+                    @Html.TextBoxFor(Q => Q.BirthDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.BirthDate, "", new { @class = "error-msg" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(Q => Q.Status, new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-4">
+                    @Html.EnumDropDownListFor(Q => Q.Status, new { @class = "form-control" })
+                </div>
+                @Html.LabelFor(Q => Q.StatusChangeDate, "Last Change Date", new { @class = "col-xs-2 control-label" })
+                <div class="col-xs-4">
+                    @Html.TextBoxFor(Q => Q.StatusChangeDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(Q => Q.StatusChangeDate, "", new { @class = "error-msg" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

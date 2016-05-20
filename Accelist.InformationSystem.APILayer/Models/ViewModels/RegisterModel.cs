@@ -102,41 +102,43 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
     public class RegisterModel
     {
         #region PersonalDataModel
-        [Display(Name = "KTP Number")]
-        [Required(ErrorMessage = "KTP ID must be filled")]
-        public string EmployeeId { get; set; }
-
-        [Display(Name = "Name")]
+        [Display(Name = "Full Name")]
         [Required(ErrorMessage = "Name must be filled")]
         public string EmployeeName { get; set; }
 
-        [Display(Name = "KTP Valid Date")]
-        [Required(ErrorMessage = "KTP Valid Date must be filled")]
-        public DateTime IdValidDate { get; set; }
+        [Display(Name = "Citizen ID Number")]
+        [Required(ErrorMessage = "Citizen ID Number must be filled")]
+        [RegularExpression("[0-9]+", ErrorMessage = "Must only contain numeric value")]
+        public string CitizenshipId { get; set; }
 
+        [Display(Name = "Gender")]
         public Gender Gender { get; set; }
 
-        [Display(Name = "Do you have Jamsostek?")]
-        [Required(ErrorMessage = "Must choose one")]
-        public bool Jamsostek { get; set; }
+        [Display(Name = "Religion")]
+        public Religion Religion { get; set; }
 
-        [Display(Name = "Academic Degree")]
-        public Academic Academic { get; set; }
-
-        [Display(Name = "Blood Type")]
-        public BloodType BloodType { get; set; }
-
-        [Required(ErrorMessage = "Birth Place must be filled")]
+        [Display(Name = "Place of Birth")]
+        [Required(ErrorMessage = "Place of Birth must be filled")]
         public string BirthPlace { get; set; }
 
-        [Required(ErrorMessage = "Birth Date must be filled")]
+        [Display(Name = "Date of Birth")]
+        [Required(ErrorMessage = "Date of Birth must be filled")]
         public string BirthDate { get; set; }
 
-        [Display(Name = "Last Academic Degree")]
-        public Academic LastAcademic { get; set; }
+        [Display(Name = "Status")]
+        public Status Status { get; set; }
 
-        [Display(Name = "Address In KTP")]
-        [Required(ErrorMessage = "Address must be filled")]
+        [Display(Name = "Last Change Date")]
+        public DateTime? StatusChangeDate { get; set; }
+
+        //will be added to DB
+        [Display(Name = "Accelist ID")]
+        public string AccelistID { get; set; }
+        #endregion
+
+        #region ContactDataModel
+        [Display(Name = "Citizen Card Address")]
+        [Required(ErrorMessage = "Citizen Card Address must be filled")]
         public string Address { get; set; }
 
         [Display(Name = "Current Address")]
@@ -145,38 +147,21 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         [Display(Name = "Mobile Phone")]
         [Required(ErrorMessage = "Mobile Phone must be filled")]
+        [RegularExpression("[0-9]+", ErrorMessage = "Must only contain numeric value")]
         public string MobilePhone { get; set; }
-
-        [Display(Name = "Phone")]
-        [Required(ErrorMessage = "Phone must be filled")]
-        public string Phone { get; set; }
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email must be filled")]
-        [EmailAddress(ErrorMessage="Email format is invalid")]
+        [EmailAddress(ErrorMessage = "Email format is invalid")]
         public string Email { get; set; }
+        #endregion
 
-        [Display(Name = "Religion")]
-        [Required(ErrorMessage = "Religion must be filled")]
-        public Religion Religion { get; set; }
+        #region BankAccountDataModel
+        public string BankAccount { get; set; }
 
-        [Required(ErrorMessage = "Total Sibling must be filled")]
-        public int TotalSibling { get; set; }
+        public List<string> BankName { get; set; }
 
-        [Required(ErrorMessage = "Must be filled")]
-        public int SiblingNumber { get; set; }
-
-        [Display(Name = "Status")]
-        public Status Status { get; set; }
-
-        [Display(Name = "Status Change Date(if any)")]
-        public DateTime StatusChange { get; set; }
-
-        [Display(Name = "Citizenship")]
-        public Citizenship Citizenship { get; set; }
-
-        //will be added to DB
-        public string AccelistID { get; set; }
+        public string AccountNumber { get; set; }
         #endregion
 
         #region MainFamilyDataModel
@@ -247,14 +232,6 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public string EmployeePermataAccountName { get; set; }
 
         #endregion //delete later
-
-#region BankAccountDataModel
-        public string BankAccount { get; set; }
-
-        public List<string> BankName { get; set; }
-
-        public string AccountNumber { get; set; }
-#endregion
 
         #region OtherRecordDataModel
 

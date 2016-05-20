@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accelist - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/simple-sidebar.css" type="text/css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -32,6 +33,9 @@
                 </a>
                 <a href="#">
                     <img src="~/Assets/Images/btn_notif.png"/>
+                </a>
+                <a href="#">
+                    <img src="~/Assets/Images/btn_settings.png" />
                 </a>
                 <a href="#" style="float: right">
                     <img src="~/Assets/Images/btn_logout.png"/>
@@ -70,6 +74,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
     @RenderSection("styles", false)
 </body>
