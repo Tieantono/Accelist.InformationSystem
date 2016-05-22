@@ -703,7 +703,7 @@
 //    }
 //});
 
-$(document).ready(function () {
+$("#employeeMasterData").ready(function () {
     $(function () {
         $("#BirthDate").datepicker();
     });
@@ -754,22 +754,84 @@ $(document).ready(function () {
         }
     });
 
-    var trainingCount = 0;
-    $("#addTrainingBtn").click(function () {
-        if (trainingCount == 0) {
-            
+
+    //Append a new row on Work Experience Form
+    $("#workExpForm").ready(function () {
+        var workExpCount = 0;
+        $("#addWorkExpBtn").click(function () {
+            if (workExpCount == 0) {
+                addRemoveWorkExpBtn();
+            }
+            if (workExpCount <= 4) {
+                workExpCount += 1;
+                $("#emptyWorkExpRow").hide();
+                appendWorkExpRow("#workExpTableRow", workExpCount);
+            }
+            else {
+                alert("Maximum Work Experience reached");
+            }
+        });
+        $("#workExpForm").on("click", "#removeWorkExpBtn", function () {
+            $("#workExpRow" + workExpCount + "").remove();
+            workExpCount--;
+            if (workExpCount == 0) {
+                $("#removeWorkExpBtn").remove();
+                $("#emptyWorkExpRow").show();
+            }
+        });
+
+        function appendWorkExpRow(workExpTableRow, workExpCount) {
+            var numRow = '<td><label class="control-label">' + workExpCount + '</label></td>';
+            var companyRow = '<td><input type="text" class="form-control" /></td>';
+            var positionRow = '<td><input type="text" class="form-control" /></td>';
+            var expRow = '<td><input type="text" class="form-control" /></td>';
+            var startYearRow = '<td><input type="text" class="form-control" /></td>';
+            var endYearRow = '<td><input type="text" class="form-control" /></td>';
+            $(workExpTableRow).append('<tr id="workExpRow' + workExpCount + '">' + numRow + companyRow + positionRow + expRow + startYearRow + endYearRow + '</tr>');
         }
-        trainingCount += 1;
-        $("#emptyTrainingRow").remove();
-        appendTrainingRow("#trainingTableRow", trainingCount);
+
+        function addRemoveWorkExpBtn() {
+            $("#workExpBtn").append('<button id="removeWorkExpBtn" type="button" class="btn btn-danger">Remove Working Experience</button>');
+        }
     });
 
-    function appendTrainingRow(trainingTableRow, trainingCount) {
-        var trainingNumRow = '<td>' + trainingCount + '</td>';
-        var trainingNameRow = '<td><input type="text" class="form-control" /></td>';
-        var trainingProviderRow = '<td><input type="text" class="form-control" /></td>';
-        var trainingPlaceRow = '<td><input type="text" class="form-control" /></td>';
-        var trainingYearRow = '<td><input type="text" class="form-control" /></td>';
-        $(trainingTableRow).append('<tr>' + trainingNumRow + trainingNameRow + trainingProviderRow + trainingPlaceRow + trainingYearRow +'</tr>');
-    }
+
+    //Append a new row on Training Record Form
+    $("#trainingRecordForm").ready(function () {
+        var trainingCount = 0;
+        $("#addTrainingBtn").click(function () {
+            if (trainingCount == 0) {
+                addRemoveTrainingBtn();
+            }
+            if (trainingCount <= 4) {
+                trainingCount += 1;
+                $("#emptyTrainingRow").hide();
+                appendTrainingRow("#trainingTableRow", trainingCount);
+            }
+            else {
+                alert("Maximum Training Data reached");
+            }
+        });
+        $("#trainingRecordForm").on("click", "#removeTrainingBtn", function () {
+            $("#trainingRow" + trainingCount + "").remove();
+            trainingCount--;
+            if (trainingCount == 0) {
+                $("#removeTrainingBtn").remove();
+                $("#emptyTrainingRow").show();
+            }
+        });
+
+        function appendTrainingRow(trainingTableRow, trainingCount) {
+            var trainingNumRow = '<td><label class="control-label">' + trainingCount + '</label></td>';
+            var trainingNameRow = '<td><input type="text" class="form-control" /></td>';
+            var trainingProviderRow = '<td><input type="text" class="form-control" /></td>';
+            var trainingPlaceRow = '<td><input type="text" class="form-control" /></td>';
+            var trainingYearRow = '<td><input type="text" class="form-control" /></td>';
+            $(trainingTableRow).append('<tr id="trainingRow' + trainingCount + '">' + trainingNumRow + trainingNameRow + trainingProviderRow + trainingPlaceRow + trainingYearRow + '</tr>');
+        }
+
+        function addRemoveTrainingBtn() {
+            $("#trainingBtn").append('<button id="removeTrainingBtn" type="button" class="btn btn-danger">Remove Training Certificate</button>');
+        }
+    });
 });

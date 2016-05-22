@@ -32,68 +32,18 @@
                     </td>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="workExpTableRow">
+                <tr id="emptyWorkExpRow">
                     <td colspan="6" style="text-align:center">
                         No Data Found
                     </td>
                 </tr>
-                @*<tr>
-                    <td>
-                        <label class="control-label">
-                            1.
-                        </label>
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
-                    </td>
-                </tr>*@
             </tbody>
         </table>
-        <div class="pull-right">
-            <button type="button" class="btn btn-success">
+        <div id="workExpBtn" class="pull-right">
+            <button id="addWorkExpBtn" type="button" class="btn btn-success">
                 Add Working Experience
             </button>
         </div>
     </div>
 </div>
-
-@*<h2 class="register-sub-header"><strong>Working Experience Data</strong></h2>
-
-    <div class="row child-form">
-        <h3 id="work" class="col-sm-1 col-sm-offset-1">
-            <strong>Working Experience</strong>
-        </h3>
-        <div class="child-btn-group">
-            <button id="addWorkBtn" type="button" class="col-sm-1 btn btn-success child-btn">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-            <button id="removeWorkBtn" type="button" class="col-sm-1 btn btn-danger child-btn">
-                <span class="glyphicon glyphicon-minus"></span>
-            </button>
-        </div>
-    </div>
-
-    <div id="workForm">
-    </div>
-
-    <div class="list-inline pull-right">
-        <button id="biologicalFamilyBtn" type="button" class="btn btn-default">
-            Prev
-        </button>
-        <button id="academicBtn" type="button" class="btn btn-default">
-            Next
-        </button>
-    </div>*@
