@@ -101,7 +101,7 @@
     }
 
 .address-textarea {
-    height: 150px
+    height: 150px;
 }
 
 .panel-title-blue {
@@ -124,6 +124,7 @@
     width: 35px;
     height: 35px;
 }
+
 .nav-top-logo {
     position: relative;
     padding-top: 10px;
@@ -139,13 +140,30 @@
     margin-right: 10px;
 }
 
-/*
- * Row with equal height columns
- * --------------------------------------------------
- */
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
+.div-panel-padding {
+    padding-left: 0px;
+    padding-right: 0px;
 }
+
+.register-submit-btn-bottom {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.page-header-top{
+    color: #5a6779 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.page-header-break {
+    border-color: #ced5db;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.register-submit-btn-top{
+    float: right;
+}
+

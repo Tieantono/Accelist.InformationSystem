@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,16 +46,29 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
     }
     #endregion
 
+    public class JsonStringList
+    {
+        public List<Child> ChildList { get; set; }
+
+        public string SiblingList { get; set; }
+
+        public List<WorkExperience> WorkExpList { get; set; }
+
+        public string AcademicLevelList { get; set; }
+
+        public List<TrainingRecord> TrainingList { get; set; }
+    }
+
     public class Child{
-        public string ChildName { get; set; }
+        public string FullName { get; set; }
 
-        public Gender? ChildGender { get; set; }
+        public Gender Gender { get; set; }
 
-        public string ChildBirthPlace { get; set; }
+        public string BirthPlace { get; set; }
 
-        public string ChildBirthDate { get; set; }
+        public string BirthDate { get; set; }
 
-        public string ChildJob { get; set; }
+        public string Job { get; set; }
     }
 
     public class Sibling{
@@ -69,14 +83,16 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public string SiblingJob { get; set; }
     }
 
-    public class WorkingExperience {
+    public class WorkExperience {
         public string CompanyName { get; set; }
 
         public string Position { get; set; }
 
-        public DateTime JoinDate { get; set; }
+        public string Experience { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public int StartYear { get; set; }
+
+        public int EndYear { get; set; }
     }
 
     public class AcademicRecord {
@@ -84,19 +100,21 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         public string SchoolName { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public int StartYear { get; set; }
 
-        public DateTime FinishDate { get; set; }
+        public int FinishYear { get; set; }
 
         public string Award { get; set; }
     }
 
-    public class WorkshopRecord {
-        public string WorkshopName { get; set; }
+    public class TrainingRecord {
+        public string Name { get; set; }
 
-        public string Institution { get; set; }
+        public string Provider { get; set; }
 
-        public DateTime Year { get; set; }
+        public string Place { get; set; }
+
+        public int Year { get; set; }
     }
 
     public class RegisterModel
@@ -207,9 +225,9 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
         public List<Sibling> Siblings { get; set; }
         #endregion
 
-        #region WorkingExperienceDataModel
+        #region WorkExperienceDataModel
 
-        public List<WorkingExperience> WorkingExperience { get; set; }
+        public List<WorkExperience> WorkExperience { get; set; }
 
         #endregion
 
@@ -219,9 +237,9 @@ namespace Accelist.InformationSystem.APILayer.Models.ViewModels
 
         #endregion
 
-        #region WorkshopRecordDataModel
+        #region TrainingRecordDataModel
 
-        public List<WorkshopRecord> WorkshopRecords { get; set; }
+        public List<TrainingRecord> TrainingRecords { get; set; }
 
         #endregion
 

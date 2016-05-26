@@ -711,37 +711,29 @@ $("#employeeMasterData").ready(function () {
         $("#StatusChangeDate").datepicker();
     });
 
-    //var getExt = $("#uploadPhotoBtn").val().split(".").pop().toLowerCase();
-    //if ($.inArray(ext, ['jpg', 'png']) == -1) {
-    //    alert("Invalid photo's extention!");
-    //}
-    //if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-    //    alert('invalid extension!');
-    //}
-
     //$("#mateRelation").on("change", "#Gender", function () {
 
     //});
+
+    if ($("#Gender option:selected").text() == "Male") {
+        $("#mateRelation").text("Wife");
+        $("#mateGender").text("Female");
+    }
+    if ($("#Gender option:selected").text() == "Female") {
+        $("#mateRelation").text("Husband");
+        $("#mateGender").text("Male");
+    }
+
     $("#Gender").change(function () {
         if ($("#Gender option:selected").text() == "Male") {
             $("#mateRelation").text("Wife");
+            $("#mateGender").text("Female");
         }
         if ($("#Gender option:selected").text() == "Female") {
             $("#mateRelation").text("Husband");
+            $("#mateGender").text("Male");
         }
-    })
-
-    $("#Status").change(function () {
-        if ($("#Status option:selected").text() == "Single") {
-            
-        }
-        if ($("#Status option:selected").text() != "Single") {
-            $("#personalForm #biologicalFamilyBtn").attr("id", "mainFamilyBtn");
-            $("#biologicalFamilyForm #personalBtn").attr("id", "mainFamilyBtn");
-            $("#mainFamilyList").removeClass("disabled");
-            singleFlag = false;
-        }
-    })
+    });
 
     $(this).on("change", "#CurrentAddress", function () {
         if ($(this).val() == "new") {
@@ -754,8 +746,59 @@ $("#employeeMasterData").ready(function () {
         }
     });
 
+    $(this).on("change", "#siblingIsYourself", function () {
+        if ($("#siblingIsYourself:checkbox").is(":checked")) {
+            var fullName = $("#EmployeeName").val();
+            $("#siblingName1").val(fullName);
+        }
+        else {
+            $("#siblingName1").val("");
+        }
+    });
+
+    //Append a new row for Child data on Main Family Form
+    var childTotal = 0;
+    $("#mainFamilyForm").ready(function () {
+        var childCount = 0;
+        $("#addChildBtn").click(function () {
+            if (childCount == 0) {
+                addRemoveChildBtn();
+            }
+            childCount++;
+            childTotal++;
+            appendChildRow("#mainFamilyTableRow", childCount);
+        });
+        $("#mainFamilyForm").on("click", "#removeChildBtn", function () {
+            $("#childRow" + childCount + "").remove();
+            childCount--;
+            childTotal--;
+            if (childCount == 0) {
+                $("#removeChildBtn").remove();
+            }
+        });
+
+        function appendChildRow(mainFamilyTableRow, childCount) {
+            var numRow = '<td><label class="control-label">Child#' + childCount + '</label></td>';
+            var fullNameRow = '<td><input id="childFullName' + childCount + '" type="text" class="form-control" /></td>';
+            var birthDateRow = '<td><input id="childBirthDate' + childCount + '" type="text" class="form-control" /></td>';
+            var birthPlaceRow = '<td><input id="childBirthPlace' + childCount + '" type="text" class="form-control" /></td>';
+            var genderRow = '<td><select id="childGender' + childCount + '" class="form-control"><option value="0">Male</option><option value="1">Female</option></select></td>';
+            var jobRow = '<td><input id="childJob' + childCount + '" type="text" class="form-control" /></td>';
+            $(mainFamilyTableRow).append('<tr id="childRow' + childCount + '">' + numRow + fullNameRow + birthDateRow + birthPlaceRow + genderRow + jobRow + '</tr>');
+        }
+
+        function addRemoveChildBtn() {
+            $("#childBtn").append('<button id="removeChildBtn" type="button" class="btn btn-danger">Remove Child</button>');
+        }
+
+        $(this).on("focus", "[id^=childBirthDate]", function () {
+            $("[id^=childBirthDate]").datepicker();
+        });
+    });
+
 
     //Append a new row on Work Experience Form
+    var workExpTotal = 0;
     $("#workExpForm").ready(function () {
         var workExpCount = 0;
         $("#addWorkExpBtn").click(function () {
@@ -763,7 +806,8 @@ $("#employeeMasterData").ready(function () {
                 addRemoveWorkExpBtn();
             }
             if (workExpCount <= 4) {
-                workExpCount += 1;
+                workExpCount++;
+                workExpTotal++;
                 $("#emptyWorkExpRow").hide();
                 appendWorkExpRow("#workExpTableRow", workExpCount);
             }
@@ -774,6 +818,7 @@ $("#employeeMasterData").ready(function () {
         $("#workExpForm").on("click", "#removeWorkExpBtn", function () {
             $("#workExpRow" + workExpCount + "").remove();
             workExpCount--;
+            workExpTotal++;
             if (workExpCount == 0) {
                 $("#removeWorkExpBtn").remove();
                 $("#emptyWorkExpRow").show();
@@ -782,11 +827,11 @@ $("#employeeMasterData").ready(function () {
 
         function appendWorkExpRow(workExpTableRow, workExpCount) {
             var numRow = '<td><label class="control-label">' + workExpCount + '</label></td>';
-            var companyRow = '<td><input type="text" class="form-control" /></td>';
-            var positionRow = '<td><input type="text" class="form-control" /></td>';
-            var expRow = '<td><input type="text" class="form-control" /></td>';
-            var startYearRow = '<td><input type="text" class="form-control" /></td>';
-            var endYearRow = '<td><input type="text" class="form-control" /></td>';
+            var companyRow = '<td><input id="workExpCompany' + workExpCount + '" type="text" class="form-control" /></td>';
+            var positionRow = '<td><input id="workExpPosition' + workExpCount + '" type="text" class="form-control" /></td>';
+            var expRow = '<td><input id="workExpExperience' + workExpCount + '" type="text" class="form-control" /></td>';
+            var startYearRow = '<td><input id="workExpStartYear' + workExpCount + '" type="text" class="form-control" /></td>';
+            var endYearRow = '<td><input id="workExpEndYear' + workExpCount + '" type="text" class="form-control" /></td>';
             $(workExpTableRow).append('<tr id="workExpRow' + workExpCount + '">' + numRow + companyRow + positionRow + expRow + startYearRow + endYearRow + '</tr>');
         }
 
@@ -796,7 +841,48 @@ $("#employeeMasterData").ready(function () {
     });
 
 
+    //Append a new row on Academic Record Form
+    $("#academicRecordForm").ready(function () {
+        var academicLevel = ["Junior High", "Senior High", "S1", "S2"];
+        var academicLevelFlag = -1;
+        $("#addAcademicLevelBtn").click(function () {
+            if (academicLevelFlag == -1) {
+                addRemoveLevelBtn();
+            }
+            if ((academicLevelFlag + 1) <= (academicLevel.length - 1)) {
+                academicLevelFlag++;
+                appendAcademicLevelRow();
+            }
+            else {
+                alert("Maximum Academic Level Data reached");
+            }
+        });
+
+        $("#academicRecordForm").on("click", "#removeAcademicLevelBtn", function () {
+            $("#academicLevel" + academicLevel[academicLevelFlag].replace(" ", "") + "").remove();
+            academicLevelFlag--;
+            if (academicLevelFlag == -1) {
+                $("#removeAcademicLevelBtn").remove();
+            }
+        });
+
+        function appendAcademicLevelRow() {
+            var levelRow = '<td><label class="control-label">' + academicLevel[academicLevelFlag] + '</label></td>';
+            var schoolNameRow = '<td><input type="text" class="form-control" /></td>';
+            var startYearRow = '<td><input type="text" class="form-control" /></td>';
+            var endYearRow = '<td><input type="text" class="form-control" /></td>';
+            var achievementRow = '<td><input type="text" class="form-control" /></td>';
+            $("#academicLevelTableRow").append('<tr id="academicLevel' + academicLevel[academicLevelFlag].replace(" ", "") + '">' + levelRow + schoolNameRow + startYearRow + endYearRow + achievementRow + '</tr>');
+        }
+
+        function addRemoveLevelBtn() {
+            $("#academicLevelBtn").append('<button id="removeAcademicLevelBtn" type="button" class="btn btn-danger">Remove Academic Record</button>');
+        }
+    });
+
+
     //Append a new row on Training Record Form
+    var trainingTotal = 0;
     $("#trainingRecordForm").ready(function () {
         var trainingCount = 0;
         $("#addTrainingBtn").click(function () {
@@ -804,7 +890,8 @@ $("#employeeMasterData").ready(function () {
                 addRemoveTrainingBtn();
             }
             if (trainingCount <= 4) {
-                trainingCount += 1;
+                trainingCount++;
+                trainingTotal++;
                 $("#emptyTrainingRow").hide();
                 appendTrainingRow("#trainingTableRow", trainingCount);
             }
@@ -815,6 +902,7 @@ $("#employeeMasterData").ready(function () {
         $("#trainingRecordForm").on("click", "#removeTrainingBtn", function () {
             $("#trainingRow" + trainingCount + "").remove();
             trainingCount--;
+            trainingTotal--;
             if (trainingCount == 0) {
                 $("#removeTrainingBtn").remove();
                 $("#emptyTrainingRow").show();
@@ -823,15 +911,86 @@ $("#employeeMasterData").ready(function () {
 
         function appendTrainingRow(trainingTableRow, trainingCount) {
             var trainingNumRow = '<td><label class="control-label">' + trainingCount + '</label></td>';
-            var trainingNameRow = '<td><input type="text" class="form-control" /></td>';
-            var trainingProviderRow = '<td><input type="text" class="form-control" /></td>';
-            var trainingPlaceRow = '<td><input type="text" class="form-control" /></td>';
-            var trainingYearRow = '<td><input type="text" class="form-control" /></td>';
+            var trainingNameRow = '<td><input id="trainingName' + trainingCount + '" type="text" class="form-control" /></td>';
+            var trainingProviderRow = '<td><input id="trainingProvider' + trainingCount + '" type="text" class="form-control" /></td>';
+            var trainingPlaceRow = '<td><input id="trainingPlace' + trainingCount + '" type="text" class="form-control" /></td>';
+            var trainingYearRow = '<td><input id="trainingYear' + trainingCount + '" type="text" class="form-control" /></td>';
             $(trainingTableRow).append('<tr id="trainingRow' + trainingCount + '">' + trainingNumRow + trainingNameRow + trainingProviderRow + trainingPlaceRow + trainingYearRow + '</tr>');
         }
 
         function addRemoveTrainingBtn() {
             $("#trainingBtn").append('<button id="removeTrainingBtn" type="button" class="btn btn-danger">Remove Training Certificate</button>');
         }
+    });
+
+    
+
+    function gatherChild() {
+        var i = 0;
+        var childList = [];
+        do {
+            childList.push({
+                FullName: $('input[id="childFullName' + (i + 1) + '"]').val(),
+                Gender: $('input[id="childGender' + (i + 1) + '"]').val(),
+                BirthPlace: $('input[id="childBirthPlace' + (i + 1) + '"]').val(),
+                BirthDate: $('input[id="childBirthDate' + (i + 1) + '"]').val(),
+                Job: $('input[id="childJob' + (i + 1) + '"]').val()
+            });
+            i++;
+        } while (i < childTotal);
+        return childList;
+    }
+
+    function gatherWorkExp() {
+        var i = 0;
+        var workExpList = [];
+        do {
+            workExpList.push({
+                CompanyName: $('input[id="workExpCompany' + (i + 1) + '"]').val(),
+                Position: $('input[id="workExpPosition' + (i + 1) + '"]').val(),
+                Experience: $('input[id="workExpExperience' + (i + 1) + '"]').val(),
+                StartYear: $('input[id="workExpStartYear' + (i + 1) + '"]').val(),
+                EndYear: $('input[id="workExpEndYear' + (i + 1) + '"]').val()
+            });
+            i++;
+        } while (i < workExpTotal);
+        return workExpList;
+    }
+
+    function gatherTraining() {
+        var i = 0;
+        var trainingList = [];
+        do {
+            trainingList.push({
+                Name: $('input[id="trainingName' + (i + 1) + '"]').val(),
+                Provider: $('input[id="trainingProvider' + (i + 1) + '"]').val(),
+                Place: $('input[id="trainingPlace' + (i + 1) + '"]').val(),
+                Year: $('input[id="trainingYear' + (i + 1) + '"]').val()
+            });
+            i++;
+        } while (i < trainingTotal);
+        return trainingList;
+    }
+
+    function gatherJsonStringModel() {
+        var jsonStringModel = {};
+        jsonStringModel = {
+            ChildList: gatherChild(),
+            WorkExpList: gatherWorkExp(),
+            TrainingList: gatherTraining()
+        }
+        return jsonStringModel;
+    }
+
+    $(this).on("submit", "#employeeMasterDataForm", function (e) {
+        var jsonStringModel = gatherJsonStringModel()
+
+        var jsonString = JSON.stringify(jsonStringModel);
+        alert(jsonString);
+        if (jsonStringModel == null) {
+            e.preventDefault();
+        }
+        $("#employeeMasterDataForm").append('<input id="jsonStringModel" name="jsonStringModel" type="hidden"/>');
+        $("#jsonStringModel").val(jsonString);
     });
 });

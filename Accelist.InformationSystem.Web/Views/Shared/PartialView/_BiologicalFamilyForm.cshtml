@@ -90,7 +90,7 @@
                         </label>
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                        <input type="text" id="siblingName1" class="form-control"/>
                     </td>
                     <td>
                         @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
@@ -106,7 +106,7 @@
                     </td>
                     <td>
                         <label class="control-label">
-                            <input type="checkbox" class="form-control" />
+                            <input id="siblingIsYourself" type="checkbox" class="form-control" />
                             Yourself
                         </label>
                     </td>

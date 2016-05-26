@@ -9,6 +9,7 @@ using Accelist.InformationSystem.APILayer.Models.ViewModels;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace Accelist.InformationSystem.Web.Controllers
 {
@@ -61,10 +62,18 @@ namespace Accelist.InformationSystem.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegisterEmployee(Employee employee) {
+        public ActionResult RegisterEmployee(RegisterModel registerModel, string jsonStringModel) {
             using (var db = new AccelistInformationSystemDbContext())
             {
-                return RedirectToAction("EmployeeList", "Employee");
+                JsonStringList jsonStringList = new JsonStringList();
+                jsonStringList = JsonConvert.DeserializeObject<JsonStringList>(jsonStringModel);
+
+                jsonStringList.TrainingList.RemoveAll(Q => Q.Name == "");
+
+                registerModel.WorkExperience = jsonStringList.WorkExpList;
+                registerModel.TrainingRecords = jsonStringList.TrainingList;
+                return null;
+                //return RedirectToAction("EmployeeList", "Employee");
             }
         }
 

@@ -32,7 +32,7 @@
                     </td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="mainFamilyTableRow">
                 <tr>
                     <td>
                         <label id="mateRelation" class="control-label">
@@ -49,13 +49,15 @@
                         @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
-                        @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })
+                        <label id="mateGender" class="control-label">
+                            Female
+                        </label>
                     </td>
                     <td>
                         @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
                     </td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td>
                         <label class="control-label">
                             Child #1
@@ -76,11 +78,11 @@
                     <td>
                         @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
                     </td>
-                </tr>
+                </tr>*@
             </tbody>
         </table>
-        <div class="pull-right">
-            <button type="button" class="btn btn-success">
+        <div id="childBtn" class="pull-right">
+            <button id="addChildBtn" type="button" class="btn btn-success">
                 Add Child
             </button>
         </div>
