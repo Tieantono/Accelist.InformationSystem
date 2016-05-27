@@ -22,12 +22,9 @@ C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem
 C:\Users\Cool\Source\Repos\Accelist.InformationSystem\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.pdb
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.dll
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Accelist.InformationSystem.APILayer.pdb
-C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.dll
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.dll
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.pdb
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.xml
-C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.pdb
-C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\bin\Debug\Dapper.Contrib.xml
-C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.csprojResolveAssemblyReference.cache
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.dll
 C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.pdb
+C:\Users\tie_tieantono\Source\Repos\Accelist.InformationSystem_Development\Accelist.InformationSystem.APILayer\obj\Debug\Accelist.InformationSystem.APILayer.csprojResolveAssemblyReference.cache

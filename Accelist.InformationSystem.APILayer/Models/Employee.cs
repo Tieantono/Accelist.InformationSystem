@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper.Contrib.Extensions;
 
 namespace Accelist.InformationSystem.APILayer.Models
 {
-    [Table("[Employee]")]
     public class Employee
     {
-        [Key]
         public string EmployeeId { get; set; }
 
         public string EmployeeName { get; set; }

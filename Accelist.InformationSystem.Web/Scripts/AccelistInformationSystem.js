@@ -931,7 +931,7 @@ $("#employeeMasterData").ready(function () {
         do {
             childList.push({
                 FullName: $('input[id="childFullName' + (i + 1) + '"]').val(),
-                Gender: $('input[id="childGender' + (i + 1) + '"]').val(),
+                Gender: $('select[id="childGender' + (i + 1) + '"]').val(),
                 BirthPlace: $('input[id="childBirthPlace' + (i + 1) + '"]').val(),
                 BirthDate: $('input[id="childBirthDate' + (i + 1) + '"]').val(),
                 Job: $('input[id="childJob' + (i + 1) + '"]').val()

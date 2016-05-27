@@ -13,7 +13,7 @@ namespace Accelist.InformationSystem.Web.Controllers
         // GET: Employee
         public ActionResult EmployeeList(string employeeName)
         {
-            using (var db = new AccelistInformationSystemDbContext())
+            using (var db = new APIAccelistInformationSystemDbContext())
             {
                 List<EmployeeTemp> employeeTemp = new List<EmployeeTemp>();
                 if (employeeName != "" && employeeName != null)
@@ -30,7 +30,7 @@ namespace Accelist.InformationSystem.Web.Controllers
 
         [HttpGet]
         public ActionResult EditEmployee(int employeeId) {
-            using (var db = new AccelistInformationSystemDbContext()) {
+            using (var db = new APIAccelistInformationSystemDbContext()) {
                 EmployeeTemp employeeTemp = new EmployeeTemp();
                 employeeTemp = db.GetEmployeeTempData(employeeId);
                 return View(employeeTemp);
@@ -39,14 +39,14 @@ namespace Accelist.InformationSystem.Web.Controllers
 
         [HttpPost]
         public ActionResult EditEmployee(EmployeeTemp employeeTemp) {
-            using (var db = new AccelistInformationSystemDbContext()) {
+            using (var db = new APIAccelistInformationSystemDbContext()) {
                 db.EditEmployeeTemp(employeeTemp);
                 return RedirectToAction("EmployeeList");
             }
         }
 
         public void DeleteEmployee(string index) {
-            using (var db = new AccelistInformationSystemDbContext()) {
+            using (var db = new APIAccelistInformationSystemDbContext()) {
                 db.DeleteEmployeeTemp(Int32.Parse(index));
             }
         }

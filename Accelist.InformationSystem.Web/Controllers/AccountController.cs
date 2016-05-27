@@ -3,40 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Accelist.InformationSystem.APILayer;
-using Accelist.InformationSystem.APILayer.Models;
-using Accelist.InformationSystem.APILayer.Models.ViewModels;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
+using Accelist.InformationSystem.Web.Engine;
+using Accelist.InformationSystem.Web.Engine.Models;
+using Accelist.InformationSystem.Web.Engine.Models.ViewModels;
+using System.Threading.Tasks;
 
 namespace Accelist.InformationSystem.Web.Controllers
 {
     public class AccountController : Controller
     {
-        [HttpGet]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Register(RegisterModel registerModel, List<Child> childs)
-        {
-            using (var db = new AccelistInformationSystemDbContext())
-            {
-                if (ModelState.IsValid)
-                {
-                    foreach (var x in childs) {
-                        
-                    }
-                    return RedirectToAction("Home");
-                }
-                return View();
-            }
-        }
-
         [HttpPost]
         public ActionResult Login(LoginModel loginModel) {
             using (var db = new AccelistInformationSystemDbContext()) {
@@ -62,20 +41,28 @@ namespace Accelist.InformationSystem.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegisterEmployee(RegisterModel registerModel, string jsonStringModel) {
+        public async Task<ActionResult> RegisterEmployee(RegisterModel registerModel, string jsonStringModel) {
             using (var db = new AccelistInformationSystemDbContext())
             {
                 JsonStringList jsonStringList = new JsonStringList();
                 jsonStringList = JsonConvert.DeserializeObject<JsonStringList>(jsonStringModel);
 
-                jsonStringList.TrainingList.RemoveAll(Q => Q.Name == "");
+                jsonStringList.ChildList.RemoveAll(Q => Q.FullName == null || Q.FullName == "");
+                jsonStringList.TrainingList.RemoveAll(Q => Q.Name == null || Q.Name == "");
+                jsonStringList.WorkExpList.RemoveAll(Q => Q.CompanyName == null || Q.CompanyName == "");
 
+                registerModel.Childs = jsonStringList.ChildList;
                 registerModel.WorkExperience = jsonStringList.WorkExpList;
                 registerModel.TrainingRecords = jsonStringList.TrainingList;
-                return null;
+
+                var taskResult = await db.iCount();
+
+                return RedirectToAction("", "");
                 //return RedirectToAction("EmployeeList", "Employee");
             }
         }
+
+
 
         public ActionResult RegisterEmployeeTemp(){
             return View();

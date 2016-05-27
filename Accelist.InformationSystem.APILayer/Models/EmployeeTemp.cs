@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
 
 namespace Accelist.InformationSystem.APILayer.Models
 {
-    [Table("[EmployeeTemp]")]
     public class EmployeeTemp
     {
-        [Dapper.Contrib.Extensions.Key]
         public int EmployeeId { get; set; }
         
         public string EmployeeName { get; set; }
