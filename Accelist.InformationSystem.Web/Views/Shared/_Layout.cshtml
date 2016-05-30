@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accelist - @ViewBag.Title</title>
-    @*@Styles.Render("~/Content/css")*@
-    @*@Styles.Render("~/Content/jqueryui")*@
-    @*@Scripts.Render("~/bundles/modernizr")*@
 
     <link href="~/Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
@@ -26,7 +23,6 @@
 <body style="font-family: 'Lato', sans-serif;">
     <div id="wrapper" class="background-page">
         <div class="navbar navbar-fixed-top top-navbar-container">
-            <div>
                 <div id="sidebar-wrapper">
                     <ul class="sidebar-nav nav-side-font">
                         <li class="sidebar-brand" style="height: 80px">
@@ -40,16 +36,22 @@
                         </li>
                     </ul>
                 </div>
-                <div class="container nav-top-logo">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img src="~/Assets/Images/accelist_logo.png" class="img-responsive" style="margin: auto" />
-                    </a>
-                    <a href="#">
+            <div>
+                <div id="navbar-top-aligner">
+                </div>
+                <div class="container nav-top-logo" style="width: auto">
+                    
+                    <a id="notifBtn" href="#">
                         <img src="~/Assets/Images/btn_notif.png" />
                     </a>
                     <a href="#">
                         <img src="~/Assets/Images/btn_settings.png" />
                     </a>
+                    <div>
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/Assets/Images/accelist_logo.png" class="img-responsive" style="margin: auto" />
+                        </a>
+                    </div>
                     <a href="#" style="float: right">
                         <img src="~/Assets/Images/btn_logout.png" />
                     </a>
@@ -81,11 +83,5 @@
             @RenderBody()
         </div>
     </div>
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @*@Scripts.Render("~/bundles/jqueryval")*@
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    @*@Scripts.Render("~/bundles/jqueryui")*@
-    @*@RenderSection("scripts", required: false)*@
-    @*@RenderSection("styles", false)*@
 </body>
 </html>

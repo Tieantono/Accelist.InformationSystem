@@ -4,11 +4,6 @@
     ViewBag.Title = "Employee Master Data";
 }
 
-@*@section styles{
-    <link href="~/Content/AccelistInformationSystem.css" type="text/css" rel="stylesheet" />
-    <script src="~/Scripts/AccelistInformationSystem.js" type="text/javascript"></script>
-}*@
-
 <div id="employeeMasterData" class="body-container">
     <form id="employeeMasterDataForm" action="/Account/RegisterEmployee" method="post" class="form-horizontal" enctype="multipart/form-data">
         <h2 class="page-header-top">
@@ -26,7 +21,7 @@
                 @Html.Partial("~/Views/Shared/PartialView/_PersonalForm.cshtml")
             </div>
 
-            <div>
+            <div class="">
                 <div id="contactForm" class="col-md-4 div-panel-padding">
                     @Html.Partial("~/Views/Shared/PartialView/_ContactForm.cshtml")
                 </div>
