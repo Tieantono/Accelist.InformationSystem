@@ -1,14 +1,14 @@
 ﻿@model Accelist.InformationSystem.Web.Engine.Models.ViewModels.RegisterModel
 
 <div class="panel panel-default panel-align">
-    <div class="panel-heading" style="background-color: white">
+    <div class="panel-heading panel-heading-background">
         <div class="panel-title panel-title-blue">
             <h2>
                 <strong>Biological Family Data</strong>
             </h2>
         </div>
     </div>
-    <div class="panel-body" style="font-weight: 600">
+    <div class="panel-body form-table">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -33,7 +33,7 @@
                     <td></td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="biologicalFamilyTableRow">
                 <tr>
                     <td>
                         <label class="control-label">
@@ -41,13 +41,13 @@
                         </label>
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.DadName, new { @class = "form-control" })
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.DadBirthDate, new { @class = "form-control" })
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.DadBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
                         <label class="control-label">
@@ -55,7 +55,7 @@
                         </label>
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.DadJob, new { @class = "form-control" })
                     </td>
                     <td></td>
                 </tr>
@@ -66,13 +66,13 @@
                         </label>
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateName, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MomName, new { @class = "form-control" })
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MomBirthDate, new { @class = "form-control" })
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MomBirthPlace, new { @class = "form-control" })
                     </td>
                     <td>
                         <label class="control-label">
@@ -80,7 +80,9 @@
                         </label>
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
+                        @Html.TextBoxFor(Q => Q.MomJob, new { @class = "form-control" })
+                    </td>
+                    <td>
                     </td>
                 </tr>
                 <tr>
@@ -90,31 +92,37 @@
                         </label>
                     </td>
                     <td>
-                        <input type="text" id="siblingName1" class="form-control"/>
+                        <input id="siblingFullName1" type="text" class="form-control" />
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthDate, new { @class = "form-control" })
+                        <input id="siblingBirthDate1" type="text" class="form-control" />
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateBirthPlace, new { @class = "form-control" })
+                        <input id="siblingBirthPlace1" type="text" class="form-control" />
                     </td>
                     <td>
-                        @Html.EnumDropDownListFor(Q => Q.MateGender, new { @class = "form-control" })
+                        @{
+                            var listItem = new List<SelectListItem> {
+                                new SelectListItem{ Text = "Male", Value = "0", Selected = true},
+                                new SelectListItem{ Text = "Female", Value = "1"}
+                            };    
+                        }
+                        @Html.DropDownList("siblingGender1", new SelectList(listItem, "Value", "Text"), new { @class="form-control" })
                     </td>
                     <td>
-                        @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
+                        <input id="siblingJob1" type="text" class="form-control" />
                     </td>
                     <td>
                         <label class="control-label">
-                            <input id="siblingIsYourself" type="checkbox" class="form-control" />
+                            <input id="siblingIsYourself1" type="checkbox" class="form-control" />
                             Yourself
                         </label>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div class="pull-right">
-            <button type="button" class="btn btn-success">
+        <div id="siblingBtn" class="pull-right">
+            <button id="addSiblingBtn" type="button" class="btn btn-success">
                 Add Sibling
             </button>
         </div>

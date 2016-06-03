@@ -1,14 +1,14 @@
 ﻿@model Accelist.InformationSystem.Web.Engine.Models.ViewModels.RegisterModel
 
 <div class="panel panel-default panel-align">
-    <div class="panel-heading" style="background-color: white">
+    <div class="panel-heading panel-heading-background">
         <div class="panel-title panel-title-blue">
             <h2>
                 <strong>Academic Record Data</strong>
             </h2>
         </div>
     </div>
-    <div class="panel-body" style="font-weight: 600">
+    <div class="panel-body form-table">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -30,7 +30,12 @@
                 </tr>
             </thead>
             <tbody id="academicLevelTableRow">
-                <tr>
+                <tr id="emptyAcademicRow">
+                    <td class="empty-row-data" colspan="5">
+                        No Data Found
+                    </td>
+                </tr>
+                @*<tr>
                     <td>
                         <label class="control-label">
                             Elementary
@@ -48,7 +53,7 @@
                     <td>
                         @Html.TextBoxFor(Q => Q.MateJob, new { @class = "form-control" })
                     </td>
-                </tr>
+                </tr>*@
             </tbody>
         </table>
         <div id="academicLevelBtn" class="pull-right">

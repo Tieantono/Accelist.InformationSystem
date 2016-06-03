@@ -16,7 +16,7 @@ namespace Accelist.InformationSystem.Web.Engine.Models.ViewModels
     }
     public enum Academic
     {
-        SD,
+        Elementary,
         SMP,
         SMU,
         D3,
@@ -50,11 +50,11 @@ namespace Accelist.InformationSystem.Web.Engine.Models.ViewModels
     {
         public List<Child> ChildList { get; set; }
 
-        public string SiblingList { get; set; }
+        public List<Sibling> SiblingList { get; set; }
 
         public List<WorkExperience> WorkExpList { get; set; }
 
-        public string AcademicLevelList { get; set; }
+        public List<AcademicRecord> AcademicLevelList { get; set; }
 
         public List<TrainingRecord> TrainingList { get; set; }
     }
@@ -72,15 +72,15 @@ namespace Accelist.InformationSystem.Web.Engine.Models.ViewModels
     }
 
     public class Sibling{
-        public string SiblingName { get; set; }
+        public string FullName { get; set; }
 
-        public Gender? SiblingGender { get; set; }
+        public Gender Gender { get; set; }
 
-        public string SiblingBirthPlace { get; set; }
+        public string BirthPlace { get; set; }
 
-        public DateTime? SiblingBirthDate { get; set; }
+        public string BirthDate { get; set; }
 
-        public string SiblingJob { get; set; }
+        public string Job { get; set; }
     }
 
     public class WorkExperience {

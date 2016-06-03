@@ -125,11 +125,6 @@
     height: 35px;
 }
 
-.nav-top-logo {
-    position: relative;
-    padding-top: 10px;
-}
-
 .body-content-auto-width {
     width: auto !important;
 }
@@ -152,23 +147,23 @@
     float: right;
 }
 
-.page-header-top{
+.page-header-top {
     color: #5a6779 !important;
     margin-left: 20px;
     margin-right: 20px;
 }
+
 .page-header-break {
     border-color: #ced5db;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.register-submit-btn-top{
+.register-submit-btn-top {
     float: right;
 }
 
-
-#navbar-top-aligner{
+#navbar-top-aligner {
     width: 80px;
     height: 80px;
     float: left;
@@ -185,18 +180,66 @@
 }
 
 @media(min-width:768px) {
-
     #navbar-top-aligner {
         margin-left: 0px;
-        margin-right: 15px;
+        margin-right: 0px;
     }
 }
 
-#notifBtn:hover{
+#notifBtn:hover {
     text-decoration: none;
 }
 
 .test-row {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.panel-heading-background {
+    background-color: white !important;
+}
+
+.empty-row-data {
+    text-align: center;
+}
+
+#top-navbar-left-side {
+    flex: 1 1 0%;
+}
+
+    #top-navbar-left-side a {
+        padding-right: 20px;
+    }
+
+#top-navbar-center {
+    flex: 2 1 0%;
+    text-align: center;
+}
+
+#top-navbar-right-side {
+    flex: 1 1 0%;
+    text-align: right;
+}
+
+#browsePhoto{
+    text-align: center;
+}
+
+#browsePhotoBtn{
+    margin: 10px auto;
+    width: 235px;
+}
+
+#formPhotoTemplate{
+    margin: auto;
+    width: 235px;
+}
+
+.form-table{
+    font-weight: 600;
+}
+
+.address-radio-label{
+    font-weight: lighter;
+    margin-bottom: 0;
 }

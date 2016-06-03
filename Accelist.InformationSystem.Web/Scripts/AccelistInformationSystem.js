@@ -746,13 +746,24 @@ $("#employeeMasterData").ready(function () {
         }
     });
 
-    $(this).on("change", "#siblingIsYourself", function () {
-        if ($("#siblingIsYourself:checkbox").is(":checked")) {
+    $(this).on("change", "[id^=siblingIsYourself]", function () {
+        //if ($("#siblingIsYourself:checkbox").is(":checked")) {
+        //    var fullName = $("#EmployeeName").val();
+        //    $("#siblingName1").val(fullName);
+        //}
+        var i = 0;
+        $("[id^=siblingIsYourself]").each(function () {
+            i++;
+        });
+
+        //alert(i);
+
+        if ($("[id^=siblingIsYourself]:checkbox").is(":checked")) {
             var fullName = $("#EmployeeName").val();
-            $("#siblingName1").val(fullName);
+            $("#siblingFullName1").val(fullName);
         }
         else {
-            $("#siblingName1").val("");
+            $("#siblingFullName1").val("");
         }
     });
 
@@ -793,6 +804,48 @@ $("#employeeMasterData").ready(function () {
 
         $(this).on("focus", "[id^=childBirthDate]", function () {
             $("[id^=childBirthDate]").datepicker();
+        });
+    });
+
+
+    //Append a new row for Sibling data on Biological Family Form
+    var siblingTotal = 1;
+    $("#biologicalFamilyForm").ready(function () {
+        var siblingCount = 1;
+        $("#addSiblingBtn").click(function () {
+            if (siblingCount == 1) {
+                addRemoveSiblingBtn();
+            }
+            siblingCount++;
+            siblingTotal++;
+            appendSiblingRow("#biologicalFamilyTableRow", siblingCount);
+        });
+        $("#biologicalFamilyForm").on("click", "#removeSiblingBtn", function () {
+            $("#siblingRow" + siblingCount + "").remove();
+            siblingCount--;
+            siblingTotal--;
+            if (siblingCount == 1) {
+                $("#removeSiblingBtn").remove();
+            }
+        });
+
+        function appendSiblingRow(biologicalFamilyTableRow, siblingCount) {
+            var numRow = '<td><label class="control-label">Sibling#' + siblingCount + '</label></td>';
+            var fullNameRow = '<td><input id="siblingFullName' + siblingCount + '" type="text" class="form-control" /></td>';
+            var birthDateRow = '<td><input id="siblingBirthDate' + siblingCount + '" type="text" class="form-control" /></td>';
+            var birthPlaceRow = '<td><input id="siblingBirthPlace' + siblingCount + '" type="text" class="form-control" /></td>';
+            var genderRow = '<td><select id="siblingGender' + siblingCount + '" class="form-control"><option value="0">Male</option><option value="1">Female</option></select></td>';
+            var jobRow = '<td><input id="siblingJob' + siblingCount + '" type="text" class="form-control" /></td>';
+            var yourselfCheckBox = '<td><label class="control-label"><input id="siblingIsYourself' + siblingCount + '" type="checkbox" class="form-control"/>Yourself</label></td>'
+            $(biologicalFamilyTableRow).append('<tr id="siblingRow' + siblingCount + '">' + numRow + fullNameRow + birthDateRow + birthPlaceRow + genderRow + jobRow + yourselfCheckBox + '</tr>');
+        }
+
+        function addRemoveSiblingBtn() {
+            $("#siblingBtn").append('<button id="removeSiblingBtn" type="button" class="btn btn-danger">Remove Sibling</button>');
+        }
+
+        $(this).on("focus", "[id^=siblingBirthDate]", function () {
+            $("[id^=siblingBirthDate]").datepicker();
         });
     });
 
@@ -843,7 +896,7 @@ $("#employeeMasterData").ready(function () {
 
     //Append a new row on Academic Record Form
     $("#academicRecordForm").ready(function () {
-        var academicLevel = ["Junior High", "Senior High", "S1", "S2"];
+        var academicLevel = ["Elementary", "Junior High", "Senior High", "S1", "S2"];
         var academicLevelFlag = -1;
         $("#addAcademicLevelBtn").click(function () {
             if (academicLevelFlag == -1) {
@@ -851,6 +904,7 @@ $("#employeeMasterData").ready(function () {
             }
             if ((academicLevelFlag + 1) <= (academicLevel.length - 1)) {
                 academicLevelFlag++;
+                $("#emptyAcademicRow").hide();
                 appendAcademicLevelRow();
             }
             else {
@@ -863,6 +917,7 @@ $("#employeeMasterData").ready(function () {
             academicLevelFlag--;
             if (academicLevelFlag == -1) {
                 $("#removeAcademicLevelBtn").remove();
+                $("#emptyAcademicRow").show();
             }
         });
 
@@ -941,6 +996,22 @@ $("#employeeMasterData").ready(function () {
         return childList;
     }
 
+    function gatherSibling() {
+        var i = 0;
+        var siblingList = [];
+        do {
+            siblingList.push({
+                FullName: $('input[id="siblingFullName' + (i + 1) + '"]').val(),
+                Gender: $('select[id="siblingGender' + (i + 1) + '"]').val(),
+                BirthPlace: $('input[id="siblingBirthPlace' + (i + 1) + '"]').val(),
+                BirthDate: $('input[id="siblingBirthDate' + (i + 1) + '"]').val(),
+                Job: $('input[id="siblingJob' + (i + 1) + '"]').val()
+            });
+            i++;
+        } while (i < siblingTotal);
+        return siblingList;
+    }
+
     function gatherWorkExp() {
         var i = 0;
         var workExpList = [];
@@ -955,6 +1026,21 @@ $("#employeeMasterData").ready(function () {
             i++;
         } while (i < workExpTotal);
         return workExpList;
+    }
+
+    function gatherAcademic() {
+        var i = 0;
+        var academicList = [];
+        do {
+            academicList.push({
+                Level: $('input[id="trainingName' + (i + 1) + '"]').val(),
+                Provider: $('input[id="trainingProvider' + (i + 1) + '"]').val(),
+                Place: $('input[id="trainingPlace' + (i + 1) + '"]').val(),
+                Year: $('input[id="trainingYear' + (i + 1) + '"]').val()
+            });
+            i++;
+        } while (i < trainingTotal);
+        return trainingList;
     }
 
     function gatherTraining() {
@@ -976,6 +1062,7 @@ $("#employeeMasterData").ready(function () {
         var jsonStringModel = {};
         jsonStringModel = {
             ChildList: gatherChild(),
+            SiblingList: gatherSibling(),
             WorkExpList: gatherWorkExp(),
             TrainingList: gatherTraining()
         }
