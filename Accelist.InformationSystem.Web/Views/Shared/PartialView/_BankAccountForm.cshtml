@@ -1,6 +1,6 @@
 ﻿@model Accelist.InformationSystem.Web.Engine.Models.ViewModels.RegisterModel
 
-<div class="panel panel-default panel-align">
+<div id="bankAccountFormPanel" class="panel panel-default panel-align">
     <div class="panel-heading panel-heading-background">
         <div class="panel-title panel-title-blue">
             <h2>
@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(Q => Q.BankAccount, "Account Name", new { @class = "col-sm-2 control-label" })
+            @Html.LabelFor(Q => Q.AccountNumber, "Account Name", new { @class = "col-sm-2 control-label" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(Q => Q.BankAccount, new { @class = "form-control" })
-                @Html.ValidationMessageFor(Q => Q.BankAccount, "", new { @class = "error-msg" })
+                @Html.TextBoxFor(Q => Q.AccountNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Q => Q.AccountNumber, "", new { @class = "error-msg" })
             </div>
         </div>
     </div>

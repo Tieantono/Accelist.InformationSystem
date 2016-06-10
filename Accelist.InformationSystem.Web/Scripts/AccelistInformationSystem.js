@@ -711,6 +711,10 @@ $("#employeeMasterData").ready(function () {
         $("#StatusChangeDate").datepicker();
     });
 
+    var contactFormPanelHeight = $("#contactFormPanel").css("height");
+    $("#bankAccountFormPanel").css("height", contactFormPanelHeight);
+    $("#otherRecordFormPanel").css("height", contactFormPanelHeight);
+
     //$("#mateRelation").on("change", "#Gender", function () {
 
     //});
@@ -724,6 +728,13 @@ $("#employeeMasterData").ready(function () {
         $("#mateGender").text("Male");
     }
 
+    if ($("#Status option:selected").text() == "Single") {
+        $("input", "#mainFamilyForm").prop("disabled", true);
+    }
+    if ($("#Status option:selected").text() != "Single") {
+        $("input", "#mainFamilyForm").prop("disabled", false);
+    }
+
     $("#Gender").change(function () {
         if ($("#Gender option:selected").text() == "Male") {
             $("#mateRelation").text("Wife");
@@ -732,6 +743,19 @@ $("#employeeMasterData").ready(function () {
         if ($("#Gender option:selected").text() == "Female") {
             $("#mateRelation").text("Husband");
             $("#mateGender").text("Male");
+        }
+    });
+
+    $("#Status").change(function () {
+        if ($("#Status option:selected").text() == "Single") {
+            $("input", "#mainFamilyForm").prop("disabled", true);
+            $("button", "#mainFamilyForm").prop("disabled", true);
+            $("select", "#mainFamilyForm").prop("disabled", true);
+        }
+        if ($("#Status option:selected").text() != "Single") {
+            $("input", "#mainFamilyForm").prop("disabled", false);
+            $("button", "#mainFamilyForm").prop("disabled", false);
+            $("select", "#mainFamilyForm").prop("disabled", false);
         }
     });
 
@@ -1077,7 +1101,13 @@ $("#employeeMasterData").ready(function () {
         if (jsonStringModel == null) {
             e.preventDefault();
         }
-        $("#employeeMasterDataForm").append('<input id="jsonStringModel" name="jsonStringModel" type="hidden"/>');
+        $("#employeeMasterDataForm").append('<input id="RegisterFormDynamicInput" name="jsonStringModel" type="hidden"/>');
         $("#jsonStringModel").val(jsonString);
+    });
+
+    $(window).resize(function () {
+        var panelHeight = $("#contactFormPanel").css("height");
+        $("#bankAccountFormPanel").css("height", panelHeight);
+        $("#otherRecordFormPanel").css("height", panelHeight);
     });
 });

@@ -41,19 +41,19 @@ namespace Accelist.InformationSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> RegisterEmployee(RegisterModel registerModel, string jsonStringModel) {
+        public async Task<ActionResult> RegisterEmployee(RegisterModel registerModel) {
             using (var db = new AccelistInformationSystemDbContext())
             {
-                JsonStringList jsonStringList = new JsonStringList();
-                jsonStringList = JsonConvert.DeserializeObject<JsonStringList>(jsonStringModel);
+                JsonStringList dynamicDataList = new JsonStringList();
+                dynamicDataList = JsonConvert.DeserializeObject<JsonStringList>(registerModel.RegisterFormDynamicData);
 
-                jsonStringList.ChildList.RemoveAll(Q => Q.FullName == null || Q.FullName == "");
-                jsonStringList.TrainingList.RemoveAll(Q => Q.Name == null || Q.Name == "");
-                jsonStringList.WorkExpList.RemoveAll(Q => Q.CompanyName == null || Q.CompanyName == "");
+                dynamicDataList.ChildList.RemoveAll(Q => Q.FullName == null || Q.FullName == "");
+                dynamicDataList.TrainingList.RemoveAll(Q => Q.Name == null || Q.Name == "");
+                dynamicDataList.WorkExpList.RemoveAll(Q => Q.CompanyName == null || Q.CompanyName == "");
 
-                registerModel.Childs = jsonStringList.ChildList;
-                registerModel.WorkExperience = jsonStringList.WorkExpList;
-                registerModel.TrainingRecords = jsonStringList.TrainingList;
+                registerModel.Childs = dynamicDataList.ChildList;
+                registerModel.WorkExperience = dynamicDataList.WorkExpList;
+                registerModel.TrainingRecords = dynamicDataList.TrainingList;
 
                 var taskResult = await db.iCount();
 

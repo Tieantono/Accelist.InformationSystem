@@ -258,5 +258,7 @@ namespace Accelist.InformationSystem.Web.Engine.Models.ViewModels
         public string JamsostekId { get; set; }
 
         #endregion
+
+        public string RegisterFormDynamicData { get; set; }
     }
 }
